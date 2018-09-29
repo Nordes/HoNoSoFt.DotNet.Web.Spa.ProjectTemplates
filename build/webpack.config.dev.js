@@ -1,7 +1,6 @@
 'use strict'
-
-const webpack = require('webpack')
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -11,9 +10,9 @@ module.exports = {
   mode: 'development',
   entry: { 'main': './ClientApp/app.js' },
   output: {
-    path: path.resolve(_rootDir, 'wwwroot'),
+    path: path.resolve(_rootDir, 'wwwroot/dist'),
     filename: 'site.bundle.js',
-    publicPath: '~/'
+    publicPath: '~/dist/'
   },
   module: {
     rules: [
@@ -50,6 +49,19 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(ico|png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              outputPath: 'images/'
+              
+            }
+          }
+        ]
       }
     ]
   },
@@ -57,6 +69,10 @@ module.exports = {
     // https://itnext.io/vue-js-and-webpack-4-from-scratch-part-2-5038cc9deffb
     // new webpack.HotModuleReplacementPlugin(), // <== To see if needed.
     new VueLoaderPlugin(),
+    new CopyWebpackPlugin([ 
+      { from: path.resolve(__dirname, '../ClientApp/static/'), to: '../static/', ignore: ['.*'] },
+      { from: path.resolve(__dirname, '../ClientApp/favicon.ico'), to: '../favicon.ico', toType: 'file' }
+     ],  { debug: 'warning' }),
     new HtmlWebpackPlugin({
       filename: path.resolve(_rootDir, 'wwwroot/index.html'),
       template: path.resolve(_rootDir, 'ClientApp/index.html'),

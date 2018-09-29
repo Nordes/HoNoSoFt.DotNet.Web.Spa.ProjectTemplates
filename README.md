@@ -17,19 +17,25 @@ This is wanted to be a SPA. It can however be modified as you please.
 - Once compiled:
 
 ## Todo
+- **In progress** Implement the default page style
+  - **In progress** Set the nav menu
+- Add some api calls for the .Net WebApi stuff.
+  - Create a real endpoint with some kind of values. (Like get employees)
+  - Use of a csv or LocalDb database or similar? (why not...)
 - Rename the folder/app to some sort of template name.
-- Add the picnic css library part of vue
-- Compile the picnic css (SASS) with some custom alteration (file).
-- Implement the default page style
-- Add a favicon
 - Make a reload/production build
+- Put this on github
+- Automate the build / CI
 - Add ts/x support (See example: https://github.com/aspnet/JavaScriptServices/blob/master/samples/misc/Webpack/webpack.config.js)
 - Add tslint/jslint
-- Put this on github
-- Automate the build
 - Change the folder structure to look like a template for visual studio.
-- Add the template in the visual studio gallery ?
+  - Add the template in the visual studio gallery ?
 - Promote the stuff... who knows ;)
+- [X] Add a favicon
+- [X] Add the picnic css library part of vue
+- [X] Compile the picnic css (SASS) with some custom alteration (file).
+  - [X] Use of the min css instead for now. I don't think we need to use the sass.
+
 
 ### Page filling
 - Keep register/login for the last part.
@@ -38,3 +44,4 @@ This is wanted to be a SPA. It can however be modified as you please.
 - Possibility to use injected title?
 - Make it with authentication? (Google?/O365?)
   - Add VueX for login state
+- Add a possibility of having SignalR (Optionized possibility with template?)

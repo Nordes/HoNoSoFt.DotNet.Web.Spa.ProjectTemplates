@@ -1,0 +1,13 @@
+nav {
+  background-color: black;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
+}
+
+.color-white {
+  color: white;
+}
+
+.main {
+  margin: 70px 4em auto;
+}
