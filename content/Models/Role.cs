@@ -1,4 +1,4 @@
-namespace VueJs.DotCore.Models
+namespace VueJs.Picnic.CSharp.Models
 {
   public enum Role {
     Employee,

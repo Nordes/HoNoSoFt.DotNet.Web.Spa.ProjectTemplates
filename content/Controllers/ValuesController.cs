@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace VueJs.DotCore.Controllers
+namespace VueJs.Picnic.CSharp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

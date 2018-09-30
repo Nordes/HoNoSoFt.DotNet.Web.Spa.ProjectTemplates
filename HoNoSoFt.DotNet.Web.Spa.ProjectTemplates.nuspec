@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
-    <id>honosoft-vuejs-dotcore</id>
-    <version>0.5.0</version>
+    <id>HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</id>
+    <authors>Nordes Menard-Lamarre</authors>
     <description>
       Light template for ASP.NET Core 2 WebApi and Vue.js 2 Client app and Picnic CSS with webpack and hot reloading
     </description>
-    <authors>Nordes Menard-Lamarre</authors>
-    <projectUrl>https://github.com/nordes/VueJs.DotCore</projectUrl>
-    <licenseUrl>https://github.com/nordes/VueJs.DotCore/blob/master/LICENSE</licenseUrl>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
+    <version>0.9.0</version>
+    <projectUrl>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</projectUrl>
+    <licenseUrl>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/blob/master/LICENSE</licenseUrl>
   </metadata>
   <files>
     <file

@@ -1,6 +1,6 @@
 using System;
 
-namespace VueJs.DotCore.Models
+namespace VueJs.Picnic.CSharp.Models
 {
   public interface IAddress {
     string Name { get; set; }

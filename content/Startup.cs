@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace VueJs.DotCore
+namespace VueJs.Picnic.CSharp
 {
     public class Startup
     {

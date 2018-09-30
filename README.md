@@ -3,6 +3,9 @@ Idea is to have the minimum as possible in order to have .Net Core 2.1 with Picn
 
 This is wanted to be a SPA. It can however be modified as you please.
 
+## Installation
+`> dotnet new -i GarciaSoftware.ConsoleTemplate.CSharp`
+
 ## Available
 - Picnic CSS (https://picnicss.com/)
 - SASS, for style in a more elegant way

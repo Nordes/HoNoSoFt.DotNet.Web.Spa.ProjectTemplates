@@ -1,6 +1,6 @@
 using System;
 
-namespace VueJs.DotCore.Models
+namespace VueJs.Picnic.CSharp.Models
 {
   public interface IPerson {
     Role Role { get; set; }
