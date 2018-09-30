@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HoNoSoFt.BitBucket.Stats.Controllers
+namespace VueJs.DotCore.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

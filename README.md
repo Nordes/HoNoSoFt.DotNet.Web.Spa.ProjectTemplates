@@ -45,3 +45,5 @@ This is wanted to be a SPA. It can however be modified as you please.
 - Make it with authentication? (Google?/O365?)
   - Add VueX for login state
 - Add a possibility of having SignalR (Optionized possibility with template?)
+
+- Extra reading (template) : https://docs.microsoft.com/en-us/dotnet/core/tutorials/create-custom-template

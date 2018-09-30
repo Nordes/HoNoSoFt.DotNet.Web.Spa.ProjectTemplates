@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace HoNoSoFt.BitBucket.Stats
+namespace VueJs.DotCore
 {
     public class Startup
     {
