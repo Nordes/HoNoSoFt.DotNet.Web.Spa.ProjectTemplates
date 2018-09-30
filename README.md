@@ -7,7 +7,7 @@ This is wanted to be a SPA. It can however be modified as you please.
 Add the templates within your `dotnet new -l` list.
 
 ```bash
-> dotnet new -i GarciaSoftware.ConsoleTemplate.CSharp
+> dotnet new -i HoNoSoFt.DotNet.Web.Spa.ProjectTemplates
 ```
 
 Then to create your project afterwards you will simply type:
