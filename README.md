@@ -34,6 +34,7 @@ Then to create your project afterwards you will simply type:
   - [o] Use of a csv or LocalDb database or similar? (why not...)
 - [x] Rename the folder/app to some sort of template name.
 - [o] Make a reload/production build
+- [o] Add logo within the template (I think it is feasible, see ms example).
 - [x] Put this on github
 - [o] Automate the build / CI
 - [o] Add ts/x support (See example: https://github.com/aspnet/JavaScriptServices/blob/master/samples/misc/Webpack/webpack.config.js)
