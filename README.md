@@ -1,7 +1,7 @@
-# Base VueJs UX w/ Picnic CSS
-Idea is to have the minimum as possible in order to have .Net Core 2.1 with Picnic CSS. There's already an another project using Bootstrap 4+, however, I would like to have something lighter as a template.
+# Dotnet Core 2.1 + VueJs + Picnic CSS
+Idea is to have the minimum as possible in order to have .Net Core 2.1 with Picnic CSS. There's already an [another project using Bootstrap 4+](https://github.com/MarkPieszak/aspnetcore-Vue-starter), however, I would like to have something lighter as a template.
 
-This is wanted to be a SPA. It can however be modified as you please.
+This is wanted to be simple a SPA with a minimum dependencies or performance issues. It can however be modified as you please.
 
 ## Installation
 Add the templates within your `dotnet new -l` list.
@@ -26,6 +26,7 @@ Then to create your project afterwards you will simply type:
 - [x] Environments
   - [x] Development
   - [o] Production
+- [o] WebPack / Add a better management of external js/css as a plugins.....js
 - [o] **In progress** Implement the default page style
   - [o] **In progress** Set the nav menu
 - [o] Add some api calls for the .Net WebApi stuff.
