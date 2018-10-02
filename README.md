@@ -41,7 +41,7 @@ Then to create your project afterwards you will simply type:
 - [o] Add tslint/jslint
 - [x] Change the folder structure to look like a template for visual studio.
   - [x] Add the template in the nuget gallery
-  - [o] Add the template in the visual studio gallery (vsix?)
+  - [o] Add the template in the visual studio gallery (vsix?) ( maybe do https://docs.microsoft.com/en-us/visualstudio/misc/how-to-manually-package-an-extension-vsix-deployment?view=vs-2015 )
 - [X] Add a favicon
 - [X] Add the picnic css library part of vue
 - [X] Compile the picnic css (SASS) with some custom alteration (file).

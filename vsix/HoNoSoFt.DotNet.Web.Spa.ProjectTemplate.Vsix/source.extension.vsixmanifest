@@ -2,8 +2,13 @@
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
         <Identity Id="HoNoSoFt.DotNet.Web.Spa.ProjectTemplate.Vsix.674d76ca-2bbd-41e9-8bce-845fac25aa8d" Version="1.0" Language="en-US" Publisher="HoNoSoFt, Nordes Menard-Lamarre" />
-        <DisplayName>HoNoSoFt.DotNet.Web.Spa.ProjectTemplate.Vsix</DisplayName>
+        <DisplayName>HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</DisplayName>
         <Description xml:space="preserve">Light template for ASP.NET Core 2 WebApi and Vue.js 2 Client app and Picnic CSS with webpack and hot reloading.</Description>
+        <MoreInfo>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</MoreInfo>
+        <License>Resources\LICENSE</License>
+        <Icon>Resources\honosoft-128px.png</Icon>
+        <PreviewImage>Resources\honosoft-128px.png</PreviewImage>
+        <Tags>Template, .Net Core, VueJs, Picnic CSS</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 16.0)" />
@@ -12,7 +17,7 @@
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
     </Dependencies>
     <Assets>
-        <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="VueJs.Picnic.CSharp" d:TargetPath="|VueJs.Picnic.CSharp;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
+        <Asset Type="Microsoft.VisualStudio.ItemTemplate" d:Source="File" Path="ItemTemplates" d:TargetPath="ItemTemplates\VueJs Picnic.zip" />
     </Assets>
     <Prerequisites>
         <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
