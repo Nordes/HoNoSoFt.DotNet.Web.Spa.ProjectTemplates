@@ -3,7 +3,8 @@ import axios from 'axios'
 import router from './router/index'
 
 import App from './App.vue'
-require("picnic/releases/picnic.min.css")
+// require("picnic/releases/picnic.min.css")
+require("picnic/src/picnic.scss")
 require('./assets/site.css')
 
 

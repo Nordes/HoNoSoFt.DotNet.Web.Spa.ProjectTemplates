@@ -38,7 +38,7 @@ namespace VueJs.Picnic.CSharp
                 app.UseWebpackDevMiddleware(
                     new WebpackDevMiddlewareOptions {
                         HotModuleReplacement = true,
-                        ConfigFile = "./build/webpack.config.dev.js"
+                        ConfigFile = "./build/webpack.config.js"
                     }); // Should be used only in dev. mode!
             }
             else

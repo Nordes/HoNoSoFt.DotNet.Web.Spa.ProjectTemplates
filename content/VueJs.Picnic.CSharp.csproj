@@ -19,8 +19,12 @@
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
     <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+    <!-- Install modules -->
     <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
     <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <!-- Deploy in development mode the packed files -->
+    <Message Importance="high" Text="Publishing webpack files" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
   </Target>
   <!--/+:cnd:noEmit -->
   
@@ -28,6 +32,6 @@
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
     <Exec Command="node -e &quot;console.log('NPM Installing dependencies...')&quot;" />
     <Exec Command="npm install --ignore-scripts" />
-    <Exec Command="npm run build" />
+    <Exec Command="npm run build -- --prod" />
   </Target>
 </Project>

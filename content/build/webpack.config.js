@@ -1,18 +1,32 @@
 'use strict'
 const path = require('path');
+const webpack = require("webpack")
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const rimraf = require('rimraf');
 var _rootDir = path.resolve(__dirname, '..')
 
+var args = process.argv;
+var isProduction = args.indexOf('--prod', 0) >= 0;
+const bundleOutputDir = './wwwroot/dist'
+
+console.warn(`Building for production: ` + isProduction);
+rimraf.sync(path.resolve(_rootDir, 'wwwroot/**/*'), { silent: true });
+
 module.exports = {
-  mode: 'development',
+  mode: isProduction ? 'production' : 'development',
   entry: { 'main': './ClientApp/app.js' },
+  optimization: {
+    minimize: isProduction,
+    nodeEnv: isProduction ? 'production' : 'development'
+  },
   output: {
     path: path.resolve(_rootDir, 'wwwroot/dist'),
     filename: 'site.bundle.js',
-    publicPath: '~/dist/'
+    publicPath: 'dist/'
   },
   module: {
     rules: [
@@ -36,18 +50,11 @@ module.exports = {
       // this will apply to both plain `.css` files
       // AND `<style>` blocks in `.vue` files
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          'vue-style-loader',
+          isProduction ? MiniCssExtractPlugin.loader : 'vue-style-loader',
           'css-loader',
-          {
-            loader: 'sass-loader',
-            // global data for all components
-            // this can be read from a scss file
-            options: {
-              data: '$color: red;'
-            }
-          }
+          'sass-loader'
         ]
       },
       {
@@ -58,7 +65,6 @@ module.exports = {
             options: {
               name: '[path][name].[ext]',
               outputPath: 'images/'
-              
             }
           }
         ]
@@ -78,5 +84,22 @@ module.exports = {
       template: path.resolve(_rootDir, 'ClientApp/index.html'),
       inject: true
     })
-  ]
+  ].concat(isProduction ? [
+    // // // Compress extracted CSS.
+    // new OptimizeCSSPlugin({
+    //   cssProcessorOptions: {
+    //     safe: true
+    //   },
+    // }),
+    new MiniCssExtractPlugin({
+      filename: 'css/style.css'
+      // publicPath: '../',
+    })
+  ] : [ // Development
+    // Plugins that apply in development builds only
+    new webpack.SourceMapDevToolPlugin({
+      filename: '[file].map', // Remove this line if you prefer inline source maps
+      moduleFilenameTemplate: path.relative(bundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
+    })
+  ])
 };

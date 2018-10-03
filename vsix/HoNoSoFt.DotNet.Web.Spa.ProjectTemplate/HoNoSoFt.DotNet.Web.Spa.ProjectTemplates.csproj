@@ -51,7 +51,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="ItemTemplates\VueJs Picnic.zip">
+    <Content Include="ProjectTemplates\CSharp\Web\VueJs Picnic.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

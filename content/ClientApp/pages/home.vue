@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hellasdo {{msg}}!
+    Hello {{msg}}!
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data () {
     return {
-      msg: 'world abc? whateveasdr'
+      msg: 'world'
     }
   }
 }
