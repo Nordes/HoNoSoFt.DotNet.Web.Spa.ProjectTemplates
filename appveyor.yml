@@ -11,6 +11,9 @@ before_build:
 
 build_script:
   - msbuild /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
+  - nuget pack
 
 after_test:
   - ps: Vsix-PushArtifacts | Vsix-PublishToGallery
+# add the nuget artifact.
+  - appveyor PushArtifact HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.0.9.0.nupkg
