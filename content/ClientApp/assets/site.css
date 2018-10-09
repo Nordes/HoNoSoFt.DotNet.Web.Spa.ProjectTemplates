@@ -1,7 +1,46 @@
 nav {
-  background-color: black;
+  background-color: #222;
   font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
+  right: auto;
+  width: 20em;
+  bottom: 0px;
+  height: 100%;
+  padding: unset;
+}
+
+nav .menu, nav .brand, nav .burger {
+  display: block;
+  float: unset;
+  top: auto;
+  transform: unset;
+  clear: both;
+  padding-left: 0.5em;
+}
+
+nav .menu .nav-item.active {
+  padding: 0.4em;
+  padding-left: inherit;
+  background-color: #479;
+  width: 100%;
+}
+
+nav .menu .nav-item.active a {
+  color: #000;
+  font-weight: bold;
+}
+
+nav .menu .nav-item a {
+  color: #fff;
+}
+
+
+nav .brand {
+  max-width: unset;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 0.1em solid #666;
+  margin-bottom: 0.5em;
 }
 
 .color-white {
@@ -9,5 +48,5 @@ nav {
 }
 
 .main {
-  padding: 70px 5px 0px 5px;
+  padding: 0px 5px 0px 23em;
 }

@@ -10,6 +10,8 @@ export default {
     return {
       msg: 'world'
     }
+  },
+  created () {
   }
 }
 </script>

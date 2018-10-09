@@ -1,5 +1,5 @@
 <template>
   <div>
-    i'm about
+    i'm a counter
   </div>
 </template>

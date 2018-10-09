@@ -22,6 +22,13 @@ module.exports = {
   name: "app",
   mode: isProduction ? 'production' : 'development',
   entry: { 'main': './ClientApp/app.js' },
+  resolve: {
+    extensions: ['.js', '.vue'],
+    alias: {
+      'components': path.resolve(__dirname, '../ClientApp/components'),
+      'pages': path.resolve(__dirname, '../ClientApp/pages'),
+    }
+  },
   optimization: {
     splitChunks: {
 			cacheGroups: {

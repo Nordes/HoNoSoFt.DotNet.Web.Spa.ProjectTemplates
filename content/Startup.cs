@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -47,9 +48,31 @@ namespace VueJs.Picnic.CSharp
             }
 
             app.UseHttpsRedirection();
+            // idea: https://code.msdn.microsoft.com/How-to-fix-the-routing-225ac90f
+            app.Use(async (context, next) => 
+                { 
+                    await next(); 
+                    if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value)) 
+                    { 
+                        context.Request.Path = "/index.html"; 
+                        await next(); 
+                    } 
+                });
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
+            // app.UseMvc(routes =>
+            // {
+            //     routes.MapRoute(
+            //         name: "default",
+            //         template: "{controller=Home}/{action=Index}/{id?}");
+
+            //     // super hack without controller...
+            //     routes.MapSpaFallbackRoute(
+            //         name: "spa-fallback",
+            //         defaults: new {  = "index"});
+            //         // defaults: new { controller = "Home", action = "Index" });
+            // });        
         }
     }
 }
