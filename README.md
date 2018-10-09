@@ -27,16 +27,16 @@ Then to create your project afterwards you will simply type:
 - [x] Babel
 - [x] Environments
   - [x] Development
-  - [o] Production
-- [o] WebPack / Add a better management of external js/css as a plugins.....js
-- [o] **In progress** Implement the default page style
-  - [o] **In progress** Set the nav menu
+  - [x] Production
+- [x] WebPack / Add a better management of external js/css as a plugins.....js
+- [x] Implement the default page style
+  - [x] Set the nav menu
+  - [o] Put some content in the pages + about the template and what it contains
 - [o] Add some api calls for the .Net WebApi stuff.
-  - [o] Create a real endpoint with some kind of values. (Like get employees)
-  - [o] Use of a csv or LocalDb database or similar? (why not...)
+  - [o] Create a real endpoint with some kind of values. (Like the aspnet demo)
 - [x] Rename the folder/app to some sort of template name.
-- [o] Make a reload/production build
-- [o] Add logo within the template (I think it is feasible, see ms example).
+- [x] Make a reload/production build
+- [o] Add logo within the template (I think it is feasible, see ms doc).
 - [x] Put this on github
 - [o] Automate the build / CI
 - [o] Add ts/x support (See example: https://github.com/aspnet/JavaScriptServices/blob/master/samples/misc/Webpack/webpack.config.js)
@@ -56,6 +56,15 @@ Then to create your project afterwards you will simply type:
 
 ## Stats
 - Once compiled: ?
+
+|  | Development | Production |
+|---|---------------|------------|
+| site.css | ? kb | ? kb |
+| vendors.css | ? kb | ? kb |
+| site.js | ? kb | ? kb |
+| vendors.js | ? kb | ? kb |
+
+> Vendors files are the library from within nodejs we use (i.e.: VueJs and VueRouter just to name it)
 
 ### Page filling
 - Keep register/login for the last part.
