@@ -15,7 +15,7 @@ var args = process.argv;
 var isProduction = args.indexOf('--prod', 0) >= 0;
 const bundleOutputDir = './wwwroot/dist'
 
-console.warn(`Building for production: ` + isProduction);
+console.info(`Building for production: ` + isProduction);
 rimraf.sync(path.resolve(_rootDir, 'wwwroot/**/*'), { silent: true });
 
 module.exports = {
@@ -79,7 +79,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: [['@babel/preset-env', { "modules": false }]],
+            plugins: [
+              "@babel/plugin-transform-runtime",
+              "@babel/plugin-transform-async-to-generator"
+            ]
           }
         }
       },
