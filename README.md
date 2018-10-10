@@ -20,7 +20,7 @@ Then to create your project afterwards you will simply type:
 ```
 
 ## Look'n feel
-![Sample](https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/src/screenshot/screenshot-home.png "Sample")
+![Sample](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home.png "Sample")
 
 ## What's inside
 - [x] Picnic CSS (https://picnicss.com/)
