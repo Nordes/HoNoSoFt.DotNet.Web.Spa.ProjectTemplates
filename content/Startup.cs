@@ -48,7 +48,8 @@ namespace VueJs.Picnic.CSharp
             }
 
             app.UseHttpsRedirection();
-            // idea: https://code.msdn.microsoft.com/How-to-fix-the-routing-225ac90f
+            // Idea: https://code.msdn.microsoft.com/How-to-fix-the-routing-225ac90f
+            // This avoid having a real mvc view.
             app.Use(async (context, next) => 
                 { 
                     await next(); 
@@ -61,18 +62,6 @@ namespace VueJs.Picnic.CSharp
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
-            // app.UseMvc(routes =>
-            // {
-            //     routes.MapRoute(
-            //         name: "default",
-            //         template: "{controller=Home}/{action=Index}/{id?}");
-
-            //     // super hack without controller...
-            //     routes.MapSpaFallbackRoute(
-            //         name: "spa-fallback",
-            //         defaults: new {  = "index"});
-            //         // defaults: new { controller = "Home", action = "Index" });
-            // });        
         }
     }
 }
