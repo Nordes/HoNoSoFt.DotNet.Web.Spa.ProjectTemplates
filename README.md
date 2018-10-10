@@ -32,15 +32,16 @@ Then to create your project afterwards you will simply type:
 - [x] WebPack / Add a better management of external js/css as a plugins.....js
 - [x] Implement the default page style
   - [x] Set the nav menu
-  - [o] Put some content in the pages + about the template and what it contains
-- [o] Add some api calls for the .Net WebApi stuff.
-  - [o] Create a real endpoint with some kind of values. (Like the aspnet demo)
+  - [x] Put some content in the pages (SPA template stuff)
+  - [o] About page should contains something
+- [x] Add some api calls for the .Net WebApi stuff.
+  - [x] Create a real endpoint with some kind of values. (Like the aspnet demo)
 - [x] Rename the folder/app to some sort of template name.
 - [x] Make a reload/production build
 - [o] Add logo within the template (I think it is feasible, see ms doc).
 - [x] Put this on github
 - [o] Automate the build / CI
-- [o] Add ts/x support (See example: https://github.com/aspnet/JavaScriptServices/blob/master/samples/misc/Webpack/webpack.config.js)
+- [o] Add ts/x support. /optional/ (See example: https://github.com/aspnet/JavaScriptServices/blob/master/samples/misc/Webpack/webpack.config.js)
 - [o] Add tslint/jslint
 - [x] Change the folder structure to look like a template for visual studio.
   - [x] Add the template in the nuget gallery
@@ -50,8 +51,8 @@ Then to create your project afterwards you will simply type:
 - [X] Compile the picnic css (SASS) with some custom alteration (file).
   - [X] Use of the min css instead for now. I don't think we need to use the sass.
 - [o] Promote the stuff... who knows ;)
-- [o] Add VueX for state management
-- [o] Add some badges
+- [x] Add Vuex for state management
+- [x] Add some badges
 
 > JQuery is not part of this, we want to avoid such a big library. I think most of the work can be done without it.
 
@@ -60,10 +61,10 @@ Then to create your project afterwards you will simply type:
 
 |  | Development | Production |
 |---|---------------|------------|
-| site.css | ? kb | ? kb |
-| vendors.css | ? kb | ? kb |
-| site.js | ? kb | ? kb |
-| vendors.js | ? kb | ? kb |
+| main.css | -- | 0.6 kb |
+| vendors.css | -- | 36.8 kb |
+| main.js | 91 kb | 10.4 kb |
+| vendors.js | 526 kb | 124 kb |
 
 > Vendors files are the library from within nodejs we use (i.e.: VueJs and VueRouter just to name it)
 
