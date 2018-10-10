@@ -19,6 +19,9 @@ Then to create your project afterwards you will simply type:
 > dotnet new vuejs-picnic
 ```
 
+## Look'n feel
+![Sample](https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/src/screenshot/screenshot-home.png "Sample")
+
 ## What's inside
 - [x] Picnic CSS (https://picnicss.com/)
 - [x] SASS, for style in a more elegant way
