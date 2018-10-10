@@ -12,7 +12,7 @@
     <p>To help you get started, we've also set up:</p>
     <ul>
       <li><strong>Client-side navigation</strong> using <a href="https://router.vuejs.org/">Vue-Router</a>. For example, click <em>Counter</em> 
-      then <em>Back</em> to return here. (Featuring, <a href="https://vuex.vuejs.org">Vuex</a>//Vuex is not part of the project//)</li>
+      then <em>Back</em> to return here. (Featuring, <a href="https://vuex.vuejs.org">Vuex</a>)</li>
       <li><strong>WebPack CLI integration</strong>. In development mode, there's no need to run <code>webpack ...</code>. 
       It runs in the background automatically, so your client-side resources are dynamically built on demand and the
       page refreshes when you modify any ClientApp file.</li>
