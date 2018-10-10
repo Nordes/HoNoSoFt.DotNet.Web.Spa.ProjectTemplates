@@ -9,16 +9,10 @@
             </div>
             <div class="menu flex">
               <template v-for="(route, index) in routes">
-                <router-link v-bind:key="index" tag="div" :to="route.path" class="nav-item" exact-active-class="active">
-                  <a href="route.path"><icon :icon="route.icon" class="mr-2" /><span>{{ route.display }}</span></a>
+                <router-link v-bind:key="index"  :to="route.path" class="nav-item" exact-active-class="active">
+                  <icon :icon="route.icon" class="mr-2" /><span>{{ route.display }}</span>
                 </router-link>
               </template>
-
-              <!-- <div class="nav-item" v-for="(route, index) in routes" :key="index">
-                <router-link :to="route.path" exact-active-class="active">
-                  <icon :icon="route.icon" class="mr-2" /><span>{{ route.display }}</span> 
-                </router-link>
-              </div> -->
             </div>
         </nav>
     </div>

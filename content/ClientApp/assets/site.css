@@ -19,21 +19,23 @@ nav .menu, nav .brand, nav .burger {
 }
 
 nav .menu .nav-item.active {
+  display: block;
   padding: 0.4em;
   padding-left: inherit;
   background-color: #479;
   width: 100%;
 }
 
-nav .menu .nav-item.active a {
+nav .menu a.nav-item.active {
   color: #000;
   font-weight: bold;
 }
 
-nav .menu .nav-item a {
+nav .menu a.nav-item {
+  display: block;
   color: #fff;
+  width: 100%;
 }
-
 
 nav .brand {
   max-width: unset;

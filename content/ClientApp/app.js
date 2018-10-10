@@ -7,7 +7,6 @@ import App from './App.vue'
 require("picnic/src/picnic.scss")
 require('./assets/site.css')
 
-
 Vue.prototype.$http = axios
 
 new Vue({
