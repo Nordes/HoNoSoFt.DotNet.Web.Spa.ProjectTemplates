@@ -7,7 +7,6 @@ import store from './store'
 import { sync } from 'vuex-router-sync'
 
 import App from './App.vue'
-// require("picnic/releases/picnic.min.css")
 require("picnic/src/picnic.scss")
 require('./assets/site.css')
 

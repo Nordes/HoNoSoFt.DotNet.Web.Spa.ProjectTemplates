@@ -1,21 +1,32 @@
-nav {
+nav, nav .menu, nav .burger ~ .menu {
   background-color: #222;
+}
+
+nav {
   font-family: 'Courier New', Courier, monospace;
   font-size: 20px;
   right: auto;
-  width: 20em;
+  /* width: 20em; */
+  position: unset;
   bottom: 0px;
   height: 100%;
   padding: unset;
 }
 
-nav .menu, nav .brand, nav .burger {
+nav .menu, nav .brand {
   display: block;
   float: unset;
   top: auto;
   transform: unset;
   clear: both;
   padding-left: 0.5em;
+}
+
+nav .burger {
+  position: absolute;
+  bottom: unset;
+  right: 0px;
+  color: white;
 }
 
 nav .menu .nav-item.active {
@@ -50,5 +61,9 @@ nav .brand {
 }
 
 .main {
-  padding: 0px 5px 0px 23em;
+  height: 100%;
 }
+
+/* .main {
+  padding: 0px 5px 0px 23em;
+} */
