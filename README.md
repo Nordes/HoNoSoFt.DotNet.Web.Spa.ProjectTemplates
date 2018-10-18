@@ -13,6 +13,8 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
 | Picnic CSS | VueX | Babel |
 |  | Vue-Router |  |
 
+> **Soon!** There will be icons/font using Fontello. This is easy to integrate and it is really more lightweight than FontAwesome. I don't say that font awesome is bad, I only say it's more practical if you already have the font + icon that you need and nothing more. The build/pack process is easier to handle. 
+
 ## Installation
 Add the templates within your `dotnet new -l` list.
 
@@ -52,6 +54,8 @@ Example: `baseHelloWorld` will be registered as `hello-world` and you are going 
   </div>
 </template>
 ```
+
+> **Tips:** There's a real example within the project for the title for each page. The name of the component is `basePageTitle.vue`.
 
 ### Webpack build
 The css is not generated while you are in development mode. They are going to be created only when you will use the `dotnet publish` command or as an alternative, you can also go and type `npm run build -- --prod` which will launch the production build with the minification and extraction of the files. 
