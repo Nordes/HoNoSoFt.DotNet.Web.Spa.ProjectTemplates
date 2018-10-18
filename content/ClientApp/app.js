@@ -7,8 +7,8 @@ import store from './store'
 import { sync } from 'vuex-router-sync'
 
 import App from './App.vue'
-require("picnic/src/picnic.scss")
-require('./assets/site.css')
+require("./assets/custom_picnic.scss")
+// require('./assets/site.css') // <== if you want to use your own css or scss.
 
 // Mode details on: https://vuejs.org/v2/guide/components-registration.html
 const requireComponent = require.context(
@@ -49,6 +49,5 @@ new Vue({
   el: '#app',
   store,
   router,
-  // render: h => h(App)
   ...App
 })

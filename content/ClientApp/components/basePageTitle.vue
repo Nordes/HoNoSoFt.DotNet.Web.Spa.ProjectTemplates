@@ -1,6 +1,6 @@
 <template>
-  <div style="border-bottom:1px solid #ddd; margin-bottom: 1em">
-    <h1 style="padding: 0.1em;">{{title}}</h1>
+  <div class="page-title">
+    <h1>{{title}}</h1>
   </div>
 </template>
 

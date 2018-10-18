@@ -2,6 +2,10 @@
 node_modules/
 npm-debug.log
 
+## Personal temp folder
+tmp/**/*
+
+## Others
 /Properties/launchSettings.json
 
 package-lock.json

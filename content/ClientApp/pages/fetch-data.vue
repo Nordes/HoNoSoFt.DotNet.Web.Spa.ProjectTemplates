@@ -1,6 +1,7 @@
 <template>
   <div>
     <page-title title="Weather Forecast"/>
+    <div class="flex one clear-side">
     <table v-if="forecasts">
       <thead>
         <tr>
@@ -19,8 +20,15 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </template>
+
+<style scoped>
+  .clear-side {
+    padding: 0 0.5em;
+  }
+</style>
 
 <script>
 export default {
