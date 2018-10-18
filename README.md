@@ -26,7 +26,7 @@ Then to create your project afterwards you will simply type:
 ![Sample responsive](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive.png "Sample responsive")
 
 ### Responsive menu
-![Sample responsive menu](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive.png "Sample responsive menu")
+![Sample responsive menu](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive-menu.png "Sample responsive menu")
 
 ## Stats
 _To be reviewed. The number are a bit higher but not that much._
