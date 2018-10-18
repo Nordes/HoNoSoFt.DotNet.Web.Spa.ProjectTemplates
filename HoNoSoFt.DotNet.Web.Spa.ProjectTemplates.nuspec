@@ -4,12 +4,12 @@
     <id>HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</id>
     <authors>Nordes Menard-Lamarre</authors>
     <description>
-      Light template for ASP.NET Core 2 WebApi and Vue.js 2 Client app and Picnic CSS with webpack and hot reloading
+      Light template for ASP.NET Core 2.1 WebApi and Vue.js 2.5.18 Client app and Picnic CSS with webpack and hot reloading
     </description>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <iconUrl>https://www.honosoft.com/img/logo.png</iconUrl>
     <projectUrl>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</projectUrl>
     <licenseUrl>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/blob/master/LICENSE</licenseUrl>
