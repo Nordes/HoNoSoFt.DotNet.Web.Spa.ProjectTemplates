@@ -1,14 +1,14 @@
 [![NuGet](https://img.shields.io/nuget/v/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.svg)](https://www.nuget.org/packages/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/) 
 ![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.1.0.svg)
 
-# <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/content/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS
+# <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS
 
 Idea is to have the minimum as possible in order to have .Net Core 2.1 with Picnic CSS. There's already an [another project using Bootstrap 4+](https://github.com/MarkPieszak/aspnetcore-Vue-starter), however, I would like to have something lighter as a template.
 
 This is wanted to be simple a SPA with a minimum dependencies or performance issues. It can however be modified as you please.
 
 # Table Of Contents
-- [<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/content/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS](#img-src%22httpsgithubcomnordeshonosoftdotnetwebspaprojecttemplatesrawmastercontentclientappstaticimageslogopng%22-height%2230%22--dotnet-core-21--vuejs--picnic-css)
+- [<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS](#img-src%22httpsgithubcomnordeshonosoftdotnetwebspaprojecttemplatesrawmastervuejspicniccsharpclientappstaticimageslogopng%22-height%2230%22--dotnet-core-21--vuejs--picnic-css)
 - [Table Of Contents](#table-of-contents)
   - [Technology inside](#technology-inside)
   - [Installation](#installation)
