@@ -9,14 +9,14 @@
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <iconUrl>https://www.honosoft.com/img/logo.png</iconUrl>
     <projectUrl>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</projectUrl>
     <licenseUrl>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/blob/master/LICENSE</licenseUrl>
   </metadata>
   <files>
     <file
-      src="content/**/*"
+      src="VueJs.Picnic.CSharp/**/*"
       exclude="**/node_modules/**;**/bin/**;**/obj/**;**/.vs/**;**/.vscode/**;**/wwwroot/**"
       target="Content" />
   </files>
