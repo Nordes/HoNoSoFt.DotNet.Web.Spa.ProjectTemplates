@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +22,14 @@ namespace VueJs.Picnic.CSharp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
+            // Enable the Gzip compression especially for Kestrel
+            services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
+            services.AddResponseCompression(options =>
+                {
+                    options.EnableForHttps = true;
+                });
+            
             // Example with dependency injection for a data provider.
             services.AddSingleton<Providers.IWeatherProvider, Providers.WeatherProviderFake>();
         }
@@ -43,6 +52,8 @@ namespace VueJs.Picnic.CSharp
             }
 
             app.UseHttpsRedirection();
+            app.UseResponseCompression(); // This is especially true for Kestrel!
+            
             // Idea: https://code.msdn.microsoft.com/How-to-fix-the-routing-225ac90f
             // This avoid having a real mvc view.
             app.Use(async (context, next) => 

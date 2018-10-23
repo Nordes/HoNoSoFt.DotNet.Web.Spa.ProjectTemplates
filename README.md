@@ -15,6 +15,7 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
     - [Update your installation?](#update-your-installation)
     - [Uninstallation? Because it could happen](#uninstallation-because-it-could-happen)
   - [Some Automation](#some-automation)
+    - [Kestrel serving using Gzip compression](#kestrel-serving-using-gzip-compression)
     - [Base components](#base-components)
     - [Webpack build](#webpack-build)
     - [Webpack hot-reload](#webpack-hot-reload)
@@ -32,9 +33,7 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
 |:----:|:----:|:----:|
 | .Net Core 2.1 | VueJs | Webpack 4 |
 | Picnic CSS | VueX | Babel |
-|  | Vue-Router |  |
-
-> **Soon!** There will be icons/font using Fontello. This is easy to integrate and it is really more lightweight than FontAwesome. I don't say that font awesome is bad, I only say it's more practical if you already have the font + icon that you need and nothing more. The build/pack process is easier to handle. 
+| Fontello | Vue-Router |  |
 
 ## Installation
 Add the templates within your `dotnet new -l` list.
@@ -62,6 +61,11 @@ Type the following command from the shell:
 ```
 
 ## Some Automation
+
+### Kestrel serving using Gzip compression
+The code is having built-in the Gzip compression on the HTTPs. It's good to use that code especially if you use Kestrel. Otherwise, if you use IIS, please remove that specific code found in the `Startup.cs`. Normally, IIS offer it's own compression module which is more performant.
+
+That being said, having it in Kestrel is still better than having nothing ;).
 
 ### Base components
 As described within the Wiki, there's some automation regarding the `Components` available within _./ClientApp/Components/**/*_. All the file starting with the keyword `base` are going to be declared as global and the name of the component to be used anywhere will be defined in snake case without the `base` keyword.
