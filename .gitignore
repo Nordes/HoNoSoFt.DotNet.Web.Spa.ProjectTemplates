@@ -2,6 +2,8 @@
 node_modules/
 npm-debug.log
 
+VueJs.Picnic.CSharp/wwwroot/**/*
+
 ## Personal temp folder
 tmp/**/*
 
