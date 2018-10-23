@@ -105,14 +105,12 @@ I don't think I should go more in depth on that topic. There is a sample in the 
 ![Sample responsive menu](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive-menu.png "Sample responsive menu")
 
 ## Stats
-_To be reviewed. The number are a bit higher but not that much._
 
-| File | Development | Production |
+| File | Development | Production (with gzip) |
 |---|---------------|------------|
-| main.css | -- | 0.6 kb |
-| vendors.css | -- | 36.8 kb |
-| main.js | 91 kb | 10.4 kb |
-| vendors.js | 526 kb | 124 kb |
+| main.css | -- | 7.5 kb (contains `picnic.(s)css`) |
+| main.js | tbd kb | 4.4 kb |
+| vendors.js | tbd kb | 43.4 kb |
 
 > Vendors files are the library from within nodejs we use (i.e.: VueJs and VueRouter just to name it)
 
