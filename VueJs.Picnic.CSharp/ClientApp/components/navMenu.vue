@@ -13,7 +13,7 @@
       <div class="menu">
         <template v-for="(route, index) in routes">
           <router-link v-bind:key="index" :to="route.path" class="nav-item" exact-active-class="active">
-            <icon :icon="route.icon" class="mr-2" /><span>{{ route.display }}</span>
+            <icon :icon="route.icon" /><span>{{ route.display }}</span>
           </router-link>
         </template>
       </div>
