@@ -10,9 +10,19 @@ before_build:
   - nuget restore
 #  - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
 
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+
 build_script:
   - msbuild /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
   - nuget pack
+  #Nuget autopackaging can also be done cref: https://www.appveyor.com/docs/deployment/nuget/
 
 after_build:
   - ps: Get-ChildItem .\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
