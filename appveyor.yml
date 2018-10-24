@@ -6,7 +6,7 @@ install:
 #  - ps: (new-object Net.WebClient).DownloadString("https://raw.github.com/madskristensen/ExtensionScripts/master/AppVeyor/vsix.ps1") | iex
 
 before_build:
-  - ps: write-host $version 
+  - ps: write-host $env:appveyor_build_version 
   - nuget restore
 #  - ps: Vsix-IncrementVsixVersion | Vsix-UpdateBuildVersion
 
