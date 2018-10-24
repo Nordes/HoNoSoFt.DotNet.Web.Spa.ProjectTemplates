@@ -3,9 +3,9 @@
 
 # <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS
 
-Idea is to have the minimum as possible in order to have .Net Core 2.1 with Picnic CSS. There's already an [another project using Bootstrap 4+](https://github.com/MarkPieszak/aspnetcore-Vue-starter), however, I would like to have something lighter as a template.
+Idea is to have the small, but really versatile and responsive UI using .Net Core 2.1, VueJS and Picnic CSS. The API's are easy to manage using .Net Core WebAPI classes. If you prefer to use Bootstrap and a different, but quite similar template, there's already [another project](https://github.com/MarkPieszak/aspnetcore-Vue-starter). This template have been created from scratch using some bit of code I've commited in the other project.
 
-This is wanted to be simple a SPA with a minimum dependencies or performance issues. It can however be modified as you please.
+This is wanted to be simple a SPA with a minimum dependencies or performance issues. It can however be modified as you please. The VueJs is configured with Vuex, but this can be removed if you don't feel it meets your requirement. The same goes for the CSS framework.
 
 # Table Of Contents
 - [<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS](#img-src%22httpsgithubcomnordeshonosoftdotnetwebspaprojecttemplatesrawmastervuejspicniccsharpclientappstaticimageslogopng%22-height%2230%22--dotnet-core-21--vuejs--picnic-css)
