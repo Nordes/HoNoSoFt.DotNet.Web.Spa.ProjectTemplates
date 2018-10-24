@@ -21,7 +21,7 @@ dotnet_csproj:
 
 build_script:
   - msbuild /p:configuration=Release /p:DeployExtension=false /p:ZipPackageCompressionLevel=normal /v:m
-  - ps: (Get-Content HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.nuspec).replace('{{version}}', $env:appveyor_build_version  | Set-Content HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.nuspec
+  - ps: (Get-Content HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.nuspec).replace('{{version}}', $env:appveyor_build_version ) | Set-Content HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.nuspec
   - nuget pack
   #Nuget autopackaging can also be done cref: https://www.appveyor.com/docs/deployment/nuget/
 
