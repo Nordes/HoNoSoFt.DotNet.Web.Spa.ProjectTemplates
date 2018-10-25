@@ -10,8 +10,19 @@
       </ul>
       <li>vee-validate</li>
       <ul>
-        <li><a href="https://baianat.github.io/vee-validate/">Official Site</a></li>
-        <!-- Put some kind of sample -->
+        <li><a href="https://baianat.github.io/vee-validate/">Official Site</a><br>
+          <form v-on:submit.prevent="">
+            <div class="third">
+              <input v-validate="'required'" class="stack" placeholder="Name" />
+              <input class="stack" placeholder="Email" />
+              <input v-validate="'required|email'" name="email2" type="text">
+              <span>{{ errors.first('email2') }}</span>
+              <button class="stack icon-paper-plane">
+                  Send
+              </button>
+            </div>
+          </form>
+        </li>
       </ul>
     </ul>
   </div>
