@@ -7,7 +7,7 @@
       <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
       <li><a href='https://vuejs.org/'>VueJs</a> for client-side code</li>
       <li><a href='https://picnicss.com/'>Picnic CSS</a> for layout and styling</li>
-      <li>(Not implemented yet)<a href='https://fontello.com'>Fontello</a>, an icon library that plays really nice with others.</li>
+      <li><a href='https://fontello.com'>Fontello</a>, an icon library that plays really nice with others.</li>
     </ul>
     <p>To help you get started, we've also set up:</p>
     <ul>
