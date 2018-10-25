@@ -6,7 +6,12 @@
       <li><a href="./swagger/">Swagger</a> (SwashBuckle)</li>
       <ul>
         <li><a href="https://github.com/domaindrivendev/Swashbuckle">Official GitHub Site</a></li>  
-        <li><a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-2.1&amp;tabs=visual-studio%2Cvisual-studio-xml">MSDN Documentation</a></li>  
+        <li><a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-2.1&amp;tabs=visual-studio%2Cvisual-studio-xml">MSDN Documentation</a></li>
+      </ul>
+      <li>vee-validate</li>
+      <ul>
+        <li><a href="https://baianat.github.io/vee-validate/">Official Site</a></li>
+        <!-- Put some kind of sample -->
       </ul>
     </ul>
   </div>

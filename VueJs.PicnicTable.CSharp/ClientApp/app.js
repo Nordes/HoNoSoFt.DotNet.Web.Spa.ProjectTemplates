@@ -5,6 +5,7 @@ import axios from 'axios'
 import router from './router/index'
 import store from './store'
 import { sync } from 'vuex-router-sync'
+import VeeValidate from 'vee-validate'
 
 import App from './App.vue'
 require("./assets/custom_picnic.scss")
@@ -43,6 +44,8 @@ requireComponent.keys().forEach(fileName => {
 })
 
 Vue.prototype.$http = axios
+Vue.use(VeeValidate);
+
 sync(store, router)
 
 new Vue({
