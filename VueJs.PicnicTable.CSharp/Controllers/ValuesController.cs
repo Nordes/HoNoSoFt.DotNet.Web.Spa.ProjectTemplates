@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +13,7 @@ namespace VueJs.PicnicTable.CSharp.Controllers
         /// GET api/values
         /// </summary>
         /// <returns>Returns an enumerable of value</returns>
-        [ProducesResponseType((int)System.Net.HttpStatusCode.Ok)]
+        [ProducesResponseType((int)System.Net.HttpStatusCode.OK)]
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
@@ -24,7 +25,7 @@ namespace VueJs.PicnicTable.CSharp.Controllers
         /// </summary>
         /// <returns>Returns an enumerable of value</returns>
         /// <remarks>For example, if you do GET api/values/5, you will get the "value".</remarks>
-        [ProducesResponseType((int)System.Net.HttpStatusCode.Ok)]
+        [ProducesResponseType((int)System.Net.HttpStatusCode.OK)]
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
