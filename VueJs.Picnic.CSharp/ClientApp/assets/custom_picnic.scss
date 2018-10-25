@@ -34,11 +34,12 @@ nav.dark {
 
 @media all and (min-width: $picnic-breakpoint) {
   $picnic-nav-width: 18em !default;
-  // $picnic-nav-height_custom: unset !important;
+  // $picnic-nav-height_custom: inherit !important;
 
   .main {
     display: inline-flex;
     min-height: 100%;
+    height:100%;
     width: 100%;
   }
 
@@ -54,32 +55,32 @@ nav.dark {
   }
 
   %nav {
-    z-index: unset;
+    z-index: inherit;
     background: $theme-dark-color;
-    right: unset;
+    right: inherit;
     width: $picnic-nav-width;
     height: inherit;
-    padding: unset;
+    padding: inherit;
 
     .brand {
       padding: 0.5em 0;
       border-bottom: 1px #666 solid;
-      max-width: unset;
+      max-width: inherit;
       font-size: 20px;
       color: #CCC;
     }
 
     .brand,
     .menu {
-      float: unset;
+      float: inherit;
       top: auto;
       clear: both;
       padding-left: 0.5em;
       display: block;
 
       // position: relative;
-      -webkit-transform: unset;
-      transform: unset;
+      -webkit-transform: inherit;
+      transform: inherit;
 
       .nav-item {
         display: block;
