@@ -17,7 +17,11 @@
   <files>
     <file
       src="VueJs.Picnic.CSharp/**/*"
-      exclude="**/node_modules/**;**/bin/**;**/obj/**;**/.vs/**;**/.vscode/**;**/wwwroot/**"
+      exclude="**/node_modules/**;**/package-lock.json;**/bin/**;**/obj/**;**/.vs/**;**/.vscode/**;**/wwwroot/**"
+      target="Content" />
+    <file
+      src="VueJs.PicnicTable.CSharp/**/*"
+      exclude="**/node_modules/**;**/package-lock.json;**/bin/**;**/obj/**;**/.vs/**;**/.vscode/**;**/wwwroot/**"
       target="Content" />
   </files>
 </package>
