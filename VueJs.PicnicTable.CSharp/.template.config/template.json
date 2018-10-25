@@ -2,9 +2,9 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Nordes Menard-Lamarre",
   "classifications": [ "Web", "WebAPI", "SPA" ],
-  "groupIdentity": "HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.VueJs",
-  "identity": "HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.VueJs.Picnic.CSharp.1.0",
-  "name": "ASP.NET Core with Vue.js and Picnic CSS and many more components (Swagger, Validation, etc.)",
+  "groupIdentity": "HoNoSoFt.DotNet.Web.Spa.ProjectTemplates",
+  "identity": "VueJs.PicnicTable.CSharp",
+  "name": "ASP.NET Core + Vue.js + Picnic + ...",
   "preferNameDirectory": true,
   "primaryOutputs": [
     {

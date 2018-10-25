@@ -9,7 +9,7 @@
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
-    <version>{{version}}</version>
+    <version>1.2.6</version>
     <iconUrl>https://www.honosoft.com/img/logo.png</iconUrl>
     <projectUrl>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</projectUrl>
     <licenseUrl>https://github.com/nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/blob/master/LICENSE</licenseUrl>
