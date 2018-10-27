@@ -32,9 +32,6 @@ export function loadLanguageAsync (lang) {
         loadedLanguages.push(lang)
 
         return setI18nLanguage(lang)
-      }).catch(() => {
-        console.error(`Language '${lang}' not found, fallback on '${i18n.fallbackLocale}'.`)
-        setI18nLanguage(i18n.fallbackLocale)
       })
     } 
 

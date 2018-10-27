@@ -51,7 +51,7 @@ router.beforeEach((to, from, next) => {
   const lang = to.params.lang
   _loadLanguageAsync(lang).then(() => next()).catch(err => {
     console.log('Language unknown : ' + err)
-    next()
+    next('/404')
   })
 })
 
