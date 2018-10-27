@@ -1,0 +1,46 @@
+@import "../../node_modules/picnic/src/themes/default/theme";
+
+$site-size-1: 0.5em;
+
+// Optimization can be done by using a list + substring + ...
+// http://sass-lang.com/documentation/Sass/Script/Functions.html
+@for $size from 1 to 4 {
+  .pt-#{$size}, .py-#{$size} {
+    padding-top: #{$size}em;
+  }
+  .pb-#{$size}, .py-#{$size} {
+    padding-bottom: #{$size}em;
+  }
+
+  .pl-#{$size}, .px-#{$size} {
+    padding-left: #{$size}em;
+  }
+  .pr-#{$size}, .px-#{$size} {
+    padding-right: #{$size}em;
+  }
+
+  .ml-#{$size}, .mx-#{$size} {
+    margin-left: #{$size}em;
+  }
+  .mr-#{$size}, .mx-#{$size} {
+    margin-right: #{$size}em;
+  }
+
+  .mt-#{$size}, .my-#{$size} {
+    margin-left: #{$size}em;
+  }
+  .mb-#{$size}, .my-#{$size} {
+    margin-right: #{$size}em;
+  }
+}
+
+.color-white {
+  color: $white;
+}
+.color-red {
+  color: $picnic-error;
+}
+
+.bt {
+  border-top: $picnic-border;
+}

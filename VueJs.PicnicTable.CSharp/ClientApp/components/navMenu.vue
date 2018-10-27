@@ -2,9 +2,12 @@
   <nav class="dark">
       <div class="brand">
           <!-- <a href="/" data-tooltip="Boosted on Picnic"> -->
-              <img class="logo" src="/static/images/logo.png" alt="VueJs Core" />
-              <span class="color-white" data-tooltip="Boosted on Picnic">- VueJs Core</span>
+          <img class="logo" src="/static/images/logo.png" alt="VueJs Core" />
+          <span class="color-white" data-tooltip="Boosted on Picnic" style="padding-right:1em">- VueJs Core</span>
           <!-- </a> -->
+          <select style="width: 60px; float:right; right:0px;" v-model="langSelected">
+            <option v-for="(lang, idx) in langs" :value="lang" :key="idx" selected>{{lang}}</option>
+          </select>
       </div>
       <!-- responsive-->
       <input id="menu" type="checkbox" class="show">
@@ -13,14 +16,9 @@
       <div class="menu">
         <template v-for="(route, index) in routes">
           <router-link v-bind:key="index" :to="{ name: route.name, params: $route.params}" class="nav-item" exact-active-class="active">
-            <icon :icon="route.icon" /><span>{{ route.display }}</span>
+            <icon :icon="route.icon" /><span v-t="route.i18n"></span>
           </router-link>
         </template>
-      </div>
-      <div>
-        <select v-model="langSelected">
-          <option v-for="(lang, idx) in langs" :value="lang" :key="idx" selected>{{lang}}</option>
-        </select>
       </div>
   </nav>
 </template>
@@ -41,7 +39,7 @@
         return {
           routes,
           collapsed: true,
-          langs: ['en', 'fr','ja'],
+          langs: ['en', 'fr','ja'], // Could be more dynamic.
           langSelected: 'en' // default
         }
       },

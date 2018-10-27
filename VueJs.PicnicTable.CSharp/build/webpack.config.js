@@ -81,8 +81,9 @@ module.exports = {
           options: {
             presets: [['@babel/preset-env', { "modules": false }]],
             plugins: [
+              "@babel/plugin-syntax-dynamic-import",
               "@babel/plugin-transform-runtime",
-              "@babel/plugin-transform-async-to-generator"
+              "@babel/plugin-transform-async-to-generator",
             ]
           }
         }

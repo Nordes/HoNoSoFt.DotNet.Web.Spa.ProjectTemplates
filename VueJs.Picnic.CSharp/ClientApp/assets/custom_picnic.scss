@@ -7,16 +7,16 @@ $green: #00AA55;
 
 nav.dark {
   background-color: $theme-dark-color;
-
-  .brand {
-    color: #fff;
-  }
 }
 
 @media all and (max-width: $picnic-breakpoint) {
   %nav {
     .burger~.menu {
       background-color: $theme-dark-color;
+    }
+
+    .brand {
+      max-width: initial;
     }
 
     .menu {
@@ -66,7 +66,6 @@ nav.dark {
       border-bottom: 1px #666 solid;
       max-width: inherit;
       font-size: 20px;
-      color: #CCC;
     }
 
     .brand,

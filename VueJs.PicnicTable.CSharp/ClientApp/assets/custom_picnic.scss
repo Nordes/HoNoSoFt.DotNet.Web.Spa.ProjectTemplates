@@ -7,36 +7,16 @@ $green: #00AA55;
 
 nav.dark {
   background-color: $theme-dark-color;
-
-  .brand {
-    color: #fff;
-  }
-}
-
-.px-1 {
-  padding-left: 1em;
-  padding-right: 1em;
-}
-.px-2 {
-  padding-left: 2em;
-  padding-right: 2em;
-}
-.py-1 {
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
-.bt {
-  border-top: $picnic-border;
-}
-.font-red {
-  color: $picnic-error;
 }
 
 @media all and (max-width: $picnic-breakpoint) {
   %nav {
     .burger~.menu {
       background-color: $theme-dark-color;
+    }
+
+    .brand {
+      max-width: initial;
     }
 
     .menu {
@@ -86,7 +66,6 @@ nav.dark {
       border-bottom: 1px #666 solid;
       max-width: inherit;
       font-size: 20px;
-      color: #CCC;
     }
 
     .brand,
