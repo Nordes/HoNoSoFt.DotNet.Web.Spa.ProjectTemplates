@@ -2,7 +2,7 @@
   <nav class="dark">
       <div class="brand">
           <!-- <a href="/" data-tooltip="Boosted on Picnic"> -->
-              <img class="logo" src="static/images/logo.png" alt="VueJs Core" />
+              <img class="logo" src="/static/images/logo.png" alt="VueJs Core" />
               <span class="color-white" data-tooltip="Boosted on Picnic">- VueJs Core</span>
           <!-- </a> -->
       </div>
@@ -12,7 +12,7 @@
       
       <div class="menu">
         <template v-for="(route, index) in routes">
-          <router-link v-bind:key="index" :to="route.path" class="nav-item" exact-active-class="active">
+          <router-link v-bind:key="index" :to="{ name: route.name, params: $route.params}" class="nav-item" exact-active-class="active">
             <icon :icon="route.icon" /><span>{{ route.display }}</span>
           </router-link>
         </template>

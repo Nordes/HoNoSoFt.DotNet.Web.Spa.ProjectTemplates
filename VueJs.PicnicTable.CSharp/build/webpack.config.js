@@ -62,7 +62,7 @@ module.exports = {
   output: {
     path: path.resolve(_rootDir, 'wwwroot/dist'),
     filename: !isProduction ? '[name].js' : '[name].[hash].js',
-    publicPath: 'dist/'
+    publicPath: '/dist/'
   },
   module: {
     rules: [
