@@ -1,11 +1,14 @@
 <template>
-  <span :class="icon"></span>
+  <span :class="icon" />
 </template>
 
 <script>
 export default {
   props: {
-    icon: String
+    icon: {
+      type: String,
+      default: 'unknown'
+    }
   }
 }
 </script>

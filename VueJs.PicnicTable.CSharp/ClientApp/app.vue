@@ -1,7 +1,10 @@
 <template>
   <div class="main">
-      <nav-menu/>
-      <router-view id="content" class="main-content" />
+    <nav-menu />
+    <router-view
+      id="content"
+      class="main-content"
+    />
   </div>
 </template>
 

@@ -14,7 +14,7 @@ export const i18n = new VueI18n({
   messages: { 'en': defaultMessages }
 })
 
-const loadedLanguages = ['en'] // our default language that is preloaded 
+const loadedLanguages = ['en'] // our default language that is preloaded
 
 function setI18nLanguage (lang) {
   i18n.locale = lang
@@ -27,13 +27,14 @@ function setI18nLanguage (lang) {
 export function loadLanguageAsync (lang) {
   if (i18n.locale !== lang && lang !== null && lang !== undefined) {
     if (!loadedLanguages.includes(lang)) {
+       // eslint-disable-line
       return import(/* webpackChunkName: "lang-[request]" */ `./lang/${lang}`).then((msgs) => {
         i18n.setLocaleMessage(lang, msgs.default)
         loadedLanguages.push(lang)
 
         return setI18nLanguage(lang)
       })
-    } 
+    }
 
     return Promise.resolve(setI18nLanguage(lang))
   }

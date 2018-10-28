@@ -8,8 +8,8 @@ import { sync } from 'vuex-router-sync'
 import VeeValidate from 'vee-validate'
 import { i18n, loadLanguageAsync } from './_i18n/setup'
 import App from './App.vue'
-require("./assets/custom_picnic.scss")
-require("./assets/site.scss")
+require('./assets/custom_picnic.scss')
+require('./assets/site.scss')
 
 // Mode details on: https://vuejs.org/v2/guide/components-registration.html
 const requireComponent = require.context(
@@ -44,9 +44,9 @@ requireComponent.keys().forEach(fileName => {
 })
 
 Vue.prototype.$http = axios
-Vue.use(VeeValidate);
+Vue.use(VeeValidate)
 // Vue.use(VueI18n)
-var _loadLanguageAsync = loadLanguageAsync;
+var _loadLanguageAsync = loadLanguageAsync
 router.beforeEach((to, from, next) => {
   const lang = to.params.lang
   _loadLanguageAsync(lang).then(() => next()).catch(err => {
@@ -57,7 +57,7 @@ router.beforeEach((to, from, next) => {
 
 sync(store, router)
 
-new Vue({
+new Vue({ // eslint-disable-line
   el: '#app',
   store,
   i18n,

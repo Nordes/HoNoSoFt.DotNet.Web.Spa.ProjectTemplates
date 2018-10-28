@@ -1,53 +1,53 @@
 'use strict'
-const path = require('path');
-const webpack = require("webpack")
+const path = require('path')
+const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const rimraf = require('rimraf');
+const rimraf = require('rimraf')
 var _rootDir = path.resolve(__dirname, '..')
 
-var args = process.argv;
-var isProduction = args.indexOf('--prod', 0) >= 0;
+var args = process.argv
+var isProduction = args.indexOf('--prod', 0) >= 0
 const bundleOutputDir = './wwwroot/dist'
 
-console.info(`Building for production: ` + isProduction);
-rimraf.sync(path.resolve(_rootDir, 'wwwroot/**/*'), { silent: true });
+console.info(`Building for production: ` + isProduction)
+rimraf.sync(path.resolve(_rootDir, 'wwwroot/**/*'), { silent: true })
 
 module.exports = {
-  name: "app",
+  name: 'app',
   mode: isProduction ? 'production' : 'development',
-  entry: {'main': './ClientApp/app.js'}, // 'polyfill': "@babel/polyfill" could also be added here.
+  entry: { 'main': './ClientApp/app.js' }, // 'polyfill': "@babel/polyfill" could also be added here.
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
       'components': path.resolve(__dirname, '../ClientApp/components'),
-      'pages': path.resolve(__dirname, '../ClientApp/pages'),
+      'pages': path.resolve(__dirname, '../ClientApp/pages')
     }
   },
   optimization: {
     splitChunks: {
-			cacheGroups: {
-				commons: {
-          chunks: "initial",
-          name: "site",
-					minChunks: 2,
-					maxInitialRequests: 5, // The default limit is too small to showcase the effect
-					minSize: 0 // This is example is too small to create commons chunks
-				},
-				vendor: {
-					test: /node_modules/,
-					chunks: "initial",
-					name: "vendor",
-					priority: 10,
-					enforce: true
-				}
-			}
-		},
+      cacheGroups: {
+        commons: {
+          chunks: 'initial',
+          name: 'site',
+          minChunks: 2,
+          maxInitialRequests: 5, // The default limit is too small to showcase the effect
+          minSize: 0 // This is example is too small to create commons chunks
+        },
+        vendor: {
+          test: /node_modules/,
+          chunks: 'initial',
+          name: 'vendor',
+          priority: 10,
+          enforce: true
+        }
+      }
+    },
     // minimize: isProduction,
     minimizer: [
       new UglifyJsPlugin({
@@ -79,11 +79,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['@babel/preset-env', { "modules": false }]],
+            presets: [['@babel/preset-env', { 'modules': false }]],
             plugins: [
-              "@babel/plugin-syntax-dynamic-import",
-              "@babel/plugin-transform-runtime",
-              "@babel/plugin-transform-async-to-generator",
+              '@babel/plugin-syntax-dynamic-import',
+              '@babel/plugin-transform-runtime',
+              '@babel/plugin-transform-async-to-generator'
             ]
           }
         }
@@ -116,10 +116,10 @@ module.exports = {
     // https://itnext.io/vue-js-and-webpack-4-from-scratch-part-2-5038cc9deffb
     // new webpack.HotModuleReplacementPlugin(), // <== To see if needed.
     new VueLoaderPlugin(),
-    new CopyWebpackPlugin([ 
+    new CopyWebpackPlugin([
       { from: path.resolve(__dirname, '../ClientApp/static/'), to: '../static/', ignore: ['.*'] },
       { from: path.resolve(__dirname, '../ClientApp/favicon.ico'), to: '../favicon.ico', toType: 'file' }
-     ],  { debug: 'warning' }),
+    ], { debug: 'warning' }),
     new HtmlWebpackPlugin({
       filename: path.resolve(_rootDir, 'wwwroot/index.html'),
       template: path.resolve(_rootDir, 'ClientApp/index.html'),
@@ -143,4 +143,4 @@ module.exports = {
       moduleFilenameTemplate: path.relative(bundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
     })
   ])
-};
+}

@@ -7,8 +7,8 @@ import store from './store'
 import { sync } from 'vuex-router-sync'
 
 import App from './App.vue'
-require("./assets/custom_picnic.scss")
-require("./assets/site.scss")
+require('./assets/custom_picnic.scss')
+require('./assets/site.scss')
 
 // Mode details on: https://vuejs.org/v2/guide/components-registration.html
 const requireComponent = require.context(
@@ -45,7 +45,7 @@ requireComponent.keys().forEach(fileName => {
 Vue.prototype.$http = axios
 sync(store, router)
 
-new Vue({
+new Vue({ // eslint-disable-line
   el: '#app',
   store,
   router,

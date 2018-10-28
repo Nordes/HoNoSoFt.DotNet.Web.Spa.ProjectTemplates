@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title title="Weather Forecast"/>
+    <page-title title="Weather Forecast" />
     <div class="flex one clear-side">
       <table v-if="forecasts">
         <thead>
@@ -12,7 +12,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(forecast, index) in forecasts" :key="index">
+          <tr
+            v-for="(forecast, index) in forecasts"
+            :key="index"
+          >
             <td>{{ forecast.dateFormatted }}</td>
             <td>{{ forecast.temperatureC }}</td>
             <td>{{ forecast.temperatureF }}</td>
@@ -22,12 +25,24 @@
       </table>
       <!-- paging -->
       <div class="flex seven center">
-        <div><span class="button paging" :disabled="previousDisabled" @click="loadPage(currentPage - 1)">Previous</span></div>
-        <div v-for="(n, index) in totalPages" :key="index">
-          <span 
-            :class="'button paging' + (n == currentPage ? ' success active' : '')" 
-            @click="loadPage(n)">{{n}}</span></div>
-        <div><span class="button paging" :disabled="nextDisabled" @click="loadPage(currentPage + 1)">Next</span></div>
+        <div><span
+          class="button paging"
+          :disabled="previousDisabled"
+          @click="loadPage(currentPage - 1)"
+        >Previous</span></div>
+        <div
+          v-for="(n, index) in totalPages"
+          :key="index"
+        >
+          <span
+            :class="'button paging' + (n == currentPage ? ' success active' : '')"
+            @click="loadPage(n)"
+        >{{ n }}</span></div>
+        <div><span
+          class="button paging"
+          :disabled="nextDisabled"
+          @click="loadPage(currentPage + 1)"
+        >Next</span></div>
       </div>
     </div>
   </div>
@@ -45,25 +60,29 @@
 
 <script>
 export default {
-  computed: {
-    previousDisabled: function () {
-      return (this.currentPage == 1 ? true : false);
-    },
-    nextDisabled: function () {
-      return (this.currentPage < this.totalPages ? false : true);
-    },
-    totalPages: function () {
-      return Math.ceil(this.total / this.pageSize)
-    }
-  },
 
-  data() {
+  data () {
     return {
       forecasts: null,
       total: 1,
       pageSize: 10,
       currentPage: -1
     }
+  },
+  computed: {
+    previousDisabled: function () {
+      return this.currentPage === 1
+    },
+    nextDisabled: function () {
+      return !(this.currentPage < this.totalPages)
+    },
+    totalPages: function () {
+      return Math.ceil(this.total / this.pageSize)
+    }
+  },
+
+  async created () {
+    this.loadPage(1)
   },
 
   methods: {
@@ -73,7 +92,7 @@ export default {
 
       if (this.currentPage === page || page < 1 || page > this.totalPages) {
         // Nothing to do... we're at some extremity.
-        return;
+        return
       }
 
       this.currentPage = page
@@ -89,10 +108,6 @@ export default {
         console.log(err)
       }
     }
-  },
-
-  async created () {
-    this.loadPage(1)
   }
 }
 </script>

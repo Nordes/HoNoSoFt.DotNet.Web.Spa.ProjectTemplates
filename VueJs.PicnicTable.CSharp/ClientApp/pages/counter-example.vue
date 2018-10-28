@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title title="Counter"/>
+    <page-title title="Counter" />
 
     <p>This is a simple example of an VueJs page component.</p>
 
@@ -16,7 +16,7 @@
 import { mapActions, mapState } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
       autoCount: 0
     }
@@ -27,25 +27,25 @@ export default {
       currentCount: state => state.counter
     })
   },
-    
-  methods: {
-    ...mapActions(['setCounter']),
-
-    incrementCounter: function () {
-      var counter = this.currentCount + 1
-      this.setCounter({counter: counter})
-    },
-
-    resetCounter: function () {
-      this.setCounter({counter: 0})
-      this.autoCount = 0
-    }
-  },
 
   created () {
     setInterval(() => {
       this.autoCount += 1
     }, 1000)
+  },
+
+  methods: {
+    ...mapActions(['setCounter']),
+
+    incrementCounter: function () {
+      var counter = this.currentCount + 1
+      this.setCounter({ counter: counter })
+    },
+
+    resetCounter: function () {
+      this.setCounter({ counter: 0 })
+      this.autoCount = 0
+    }
   }
 }
 </script>

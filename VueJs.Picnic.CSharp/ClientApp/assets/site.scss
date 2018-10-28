@@ -1,6 +1,25 @@
+$theme-dark-color: #222;
 @import "../../node_modules/picnic/src/themes/default/theme";
 
-$site-size-1: 0.5em;
+article {
+  header {
+    background-color: $theme-dark-color;
+    color: $white;
+  }
+
+  content {
+    padding: 0 1em;
+  }
+
+  footer {
+    background-color: $silver;
+    padding: 0 1em !important;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
 
 // Optimization can be done by using a list + substring + ...
 // http://sass-lang.com/documentation/Sass/Script/Functions.html
