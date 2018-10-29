@@ -1,5 +1,5 @@
 [![NuGet](https://img.shields.io/nuget/v/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.svg)](https://www.nuget.org/packages/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/) 
-![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.3.0.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
+![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.3.2.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
 
 # <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS
 
@@ -55,6 +55,8 @@ Older version, please see [release notes](https://github.com/Nordes/HoNoSoFt.Dot
 | Picnic CSS | VueX | Babel |
 | Fontello | Vue-Router | Eslint (standard+vuejs-recommended) |
 
+**Sample website:** [https://vue-picnic.azurewebsites.net/](https://vue-picnic.azurewebsites.net/)
+
 ### Template: vuejs-picnic-table
 | Tech | Tech | Tech |
 |:----:|:----:|:----:|
@@ -62,6 +64,8 @@ Older version, please see [release notes](https://github.com/Nordes/HoNoSoFt.Dot
 | Picnic CSS | VueX | Babel |
 | Fontello | Vue-Router | Eslint (standard+vuejs-recommended) |
 | **Vue-i18n** | **Swagger** | **Vee-validate** |
+
+**Sample website:** [https://vue-picnic-table.azurewebsites.net/](https://vue-picnic-table.azurewebsites.net/)
 
 ## Installation
 Add the templates within your `dotnet new -l` list.
