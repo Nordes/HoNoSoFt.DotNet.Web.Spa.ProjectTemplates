@@ -21,6 +21,12 @@ article {
   text-align: right;
 }
 
+// Bug fix in the template. The card somehow does not react well for no apparent reason.
+// This is not the proper solution especially if you start using card within a popup.
+.card {
+  z-index: -1;
+}
+
 // Optimization can be done by using a list + substring + ...
 // http://sass-lang.com/documentation/Sass/Script/Functions.html
 @for $size from 1 to 4 {
