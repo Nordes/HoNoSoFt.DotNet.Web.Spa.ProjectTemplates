@@ -35,9 +35,8 @@
     >&#8801;</label>
 
     <div class="menu">
-      <template v-for="(route, index) in routes">
+      <template v-for="(route, index) in sortedRoutes">
         <router-link
-          v-if="route.showMenu"
           :key="index"
           :to="{ name: route.name, params: $route.params}"
           class="nav-item"
@@ -53,6 +52,13 @@
 <script>
 import { routes } from '../router/routes'
 export default {
+  computed: {
+    sortedRoutes: function () {
+      var desiredRoutes = routes.filter(f=> f.meta !== null && f.meta !== undefined && f.meta.order !== null && !isNaN(f.meta.order))
+      return desiredRoutes.sort((f, g) => f.meta.order < g.meta.order ? -1 : f.meta.order === g.meta.order ? 0 : 1)
+    }
+  },
+
   data () {
     return {
       appName: 'VueJs Core',
