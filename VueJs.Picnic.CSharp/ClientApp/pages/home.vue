@@ -39,8 +39,20 @@
       </article>
     </div>
     <br>
-    <p>If you want to know more about the author of this template, you can contact him through 
-      <a href="https://www.linkedin.com/in/nordes" data-tooltip="LinkedIn"><icon icon="icon-linkedin" /></a><a href="https://twitter.com/nordes" data-tooltip="Twitter"><icon icon="icon-twitter"/></a><a href="https://www.facebook.com/honosofthq/" data-tooltip="Facebook (HoNoSoFt)"><icon icon="icon-facebook"/></a><a href="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates" data-tooltip="GitHub"><icon icon="icon-github"/></a></p>
+    <p>If you want to know more about the author of this template, you can contact him through
+      <a
+        href="https://www.linkedin.com/in/nordes"
+        data-tooltip="LinkedIn"
+      ><icon icon="icon-linkedin" /></a><a
+        href="https://twitter.com/nordes"
+        data-tooltip="Twitter"
+      ><icon icon="icon-twitter" /></a><a
+        href="https://www.facebook.com/honosofthq/"
+        data-tooltip="Facebook (HoNoSoFt)"
+      ><icon icon="icon-facebook" /></a><a
+        href="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates"
+        data-tooltip="GitHub"
+      ><icon icon="icon-github" /></a></p>
   </div>
 </template>
 
