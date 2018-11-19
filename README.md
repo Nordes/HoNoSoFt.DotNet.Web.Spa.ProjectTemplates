@@ -1,5 +1,5 @@
 [![NuGet](https://img.shields.io/nuget/v/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.svg)](https://www.nuget.org/packages/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/) 
-![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.3.2.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
+![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.3.8.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
 
 # <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS
 
@@ -10,7 +10,7 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
 # Table Of Contents
 - [<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS](#img-src%22httpsgithubcomnordeshonosoftdotnetwebspaprojecttemplatesrawmastervuejspicniccsharpclientappstaticimageslogopng%22-height%2230%22--dotnet-core-21--vuejs--picnic-css)
 - [Table Of Contents](#table-of-contents)
-  - [New in 1.3.0](#new-in-130)
+  - [Release 1.3.8](#release-138)
   - [Technology inside](#technology-inside)
     - [Template: vuejs-picnic](#template-vuejs-picnic)
     - [Template: vuejs-picnic-table](#template-vuejs-picnic-table)
@@ -31,19 +31,11 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
   - [About the author](#about-the-author)
   - [License](#license)
 
-## New in 1.3.0
-- **Bugfix** Fix template to works in IE 11+ (Not tested with older)
-- **Bugfix** Fix routing with params (It had strange behavior)
-- **Updated** The picnic styles
-- **Updated** The nupkg does not contains anymore the `package-lock.json`
-- **New** Added a new `site.scss` for personal site config (not picnic)
-- **New** A 404 page is now displayed when the URI is wrong
-- **New** Eslint (`npm run lint` for manual execution. Not automated with WebPack)
-- **New** New template **vuejs-picnic-table**
-    - Vee-Validate: For forms validation
-    - Vue-i18n: For internationalization
-    - Swagger swashbuckle: For API's definitions (dotnet)
-    - [More details in the wiki](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/wiki)
+## Release 1.3.8
+- **Bugfix** Routes were not behaving properly in the picnictable due to the language
+- **Bugfix** Glitch with article tags showing over the overlay
+- **New** Translation in French is complete (no more will be done, JP is there, but at a minimum)
+- **Updated** Appveyor build is now fully automated
 
 Older version, please see [release notes](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/wiki/Release-Notes).
 
