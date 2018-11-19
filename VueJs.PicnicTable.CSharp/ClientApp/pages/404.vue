@@ -2,9 +2,9 @@
   <div>
     <page-title
       class="color-red"
-      title="Error 404 - Page Not Found"
+      :title="$t('404.title')"
     />
-    <div class="shrug"><p><b>404</b></p><span class="left-arm">¯\_</span>(ツ)<span class="right-arm">_/¯</span><span class="blink" /><p>Not found</p></div>
+    <div class="shrug"><p><b>404</b></p><span class="left-arm">¯\_</span>(ツ)<span class="right-arm">_/¯</span><span class="blink" /><p>{{ $t('404.message') }}</p></div>
   </div>
 </template>
 

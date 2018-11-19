@@ -43,15 +43,19 @@
       <a
         href="https://www.linkedin.com/in/nordes"
         data-tooltip="LinkedIn"
+        class="tooltip-top"
       ><icon icon="icon-linkedin" /></a><a
         href="https://twitter.com/nordes"
         data-tooltip="Twitter"
+        class="tooltip-top"
       ><icon icon="icon-twitter" /></a><a
         href="https://www.facebook.com/honosofthq/"
         data-tooltip="Facebook (HoNoSoFt)"
+        class="tooltip-top"
       ><icon icon="icon-facebook" /></a><a
         href="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates"
         data-tooltip="GitHub"
+        class="tooltip-top"
       ><icon icon="icon-github" /></a></p>
   </div>
 </template>

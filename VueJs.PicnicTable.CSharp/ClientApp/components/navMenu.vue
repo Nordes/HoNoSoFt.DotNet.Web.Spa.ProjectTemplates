@@ -4,13 +4,13 @@
       <img
         class="logo"
         src="/static/images/logo.png"
-        alt="VueJs Core"
+        :alt="$t('navMenu.title')"
       >
       <span
         class="color-white"
         data-tooltip="Boosted on Picnic"
         style="padding-right:1em"
-      >{{ appName }}</span>
+      >{{ $t('navMenu.title') }}</span>
       <select
         v-model="langSelected"
         style="width: 60px; float:right; right:0px;"
@@ -19,8 +19,8 @@
           v-for="(lang, idx) in langs"
           :key="idx"
           :value="lang"
-          selected
-        >{{ lang }}</option>
+          selected="lang == langSelected"
+        >{{ $t(`navMenu.lang.${lang}`) }}</option>
       </select>
     </div>
     <!-- responsive-->
@@ -61,11 +61,10 @@ export default {
 
   data () {
     return {
-      appName: 'VueJs Core',
       routes,
       collapsed: true,
       langs: ['en', 'fr', 'ja'], // Could be more dynamic.
-      langSelected: 'en' // default
+      langSelected: this.$i18n.locale // default
     }
   },
 
@@ -74,6 +73,10 @@ export default {
       // Vuex could also be used instead.
       if (this.$router.params === null || this.$router.params === undefined) { this.$router.push({ path: this.$router.route, params: { lang: newVal } }) } else { this.$router.push({ path: this.$router.route, params: this.$router.lang = newVal }) }
     }
+  },
+
+  mounted () {
+    setTimeout(f=> this.langSelected = this.$i18n.locale, 100) // Hack for now. 
   },
 
   methods: {
