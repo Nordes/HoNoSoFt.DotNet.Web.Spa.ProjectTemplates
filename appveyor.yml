@@ -32,10 +32,10 @@ after_build:
   - ps: cd demo.picnic
   - ps: dotnet new vuejs-picnic
   - npm install
-  - ps: dotnet publish demo.picnic.csproj -c release -o ./output --self-contained
+  - ps: dotnet publish demo.picnic.csproj -c release -r win-x86 -o ./output --self-contained
 
 artifacts:
-  - path: demo.picnic\output\**\*
+  - path: demo.picnic\output
     name: vuejs-picnic
 
 
