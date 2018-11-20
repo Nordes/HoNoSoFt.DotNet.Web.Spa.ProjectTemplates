@@ -37,7 +37,7 @@
           <span
             :class="'button paging' + (n == currentPage ? ' success active' : '')"
             @click="loadPage(n)"
-        >{{ n }}</span></div>
+          >{{ n }}</span></div>
         <div><span
           class="button paging"
           :disabled="nextDisabled"
