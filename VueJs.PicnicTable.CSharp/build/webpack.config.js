@@ -21,6 +21,7 @@ rimraf.sync(path.resolve(_rootDir, 'wwwroot/**/*'), { silent: true })
 module.exports = {
   name: 'app',
   mode: isProduction ? 'production' : 'development',
+  stats: isProduction ? 'errors-only' : 'normal',
   entry: { 'main': './ClientApp/app.js' }, // 'polyfill': "@babel/polyfill" could also be added here.
   resolve: {
     extensions: ['.js', '.vue'],
