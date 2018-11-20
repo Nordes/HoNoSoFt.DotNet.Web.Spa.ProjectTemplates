@@ -38,7 +38,7 @@ after_build:
   # Vuejs-Picnic Table (full blown)
   - ps: mkdir demo.picnictable
   - ps: cd demo.picnictable
-  - ps: dotnet new vuejs-picnictable
+  - ps: dotnet new vuejs-picnic-table
   - npm install
   - ps: dotnet publish demo.picnictable.csproj -c release -r win-x86 -o ./output --self-contained
 
