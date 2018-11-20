@@ -31,8 +31,12 @@ after_build:
   - ps: mkdir demo.picnic
   - ps: cd demo.picnic
   - ps: dotnet new vuejs-picnic
-  - cmd: npm install
-  - ps: dotnet publish demo.picnic.csproj -o ./output
+  - npm install
+  - ps: dotnet publish demo.picnic.csproj -c release -o ./output --self-contained
+  artifacts:
+    - path: vuejs-picnic\output\**\*
+      name: vuejs-picnic
+
 
 after_test:
 #  - ps: Vsix-PushArtifacts | Vsix-PublishToGallery
