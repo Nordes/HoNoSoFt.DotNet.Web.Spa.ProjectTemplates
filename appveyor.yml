@@ -31,7 +31,7 @@ after_build:
   - ps: mkdir demo.picnic
   - ps: cd demo.picnic
   - ps: dotnet new vuejs-picnic
-  - ps: npm install
+  - cmd: npm install
   - ps: dotnet publish demo.picnic.csproj -o ./output
 
 after_test:
