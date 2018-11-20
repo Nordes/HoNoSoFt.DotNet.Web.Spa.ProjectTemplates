@@ -35,7 +35,7 @@ after_build:
   - ps: dotnet publish demo.picnic.csproj -c release -o ./output --self-contained
 
 artifacts:
-  - path: vuejs-picnic\output\**\*
+  - path: demo.picnic\output\**\*
     name: vuejs-picnic
 
 
