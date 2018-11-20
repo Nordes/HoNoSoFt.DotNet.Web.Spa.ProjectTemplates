@@ -9,7 +9,7 @@
       <span
         class="color-white"
         data-tooltip="Boosted on Picnic"
-      >- VueJs Core</span>
+      > VueJs Core</span>
     </div>
     <!-- responsive-->
     <input

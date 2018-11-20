@@ -27,8 +27,28 @@ build_script:
 
 after_build:
   - ps: Get-ChildItem .\*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+  - ps: Get-ChildItem .\*.nupkg | % { dotnet new -i $_.FullName }
+  # Vuejs-Picnic
+  - ps: mkdir demo.picnic
+  - ps: cd demo.picnic
+  - ps: dotnet new vuejs-picnic
+  - npm install
+  - ps: dotnet publish demo.picnic.csproj -c release -r win-x86 -o ./output --self-contained
+  - ps: cd ..
+  # Vuejs-Picnic Table (full blown)
+  - ps: mkdir demo.picnictable
+  - ps: cd demo.picnictable
+  - ps: dotnet new vuejs-picnic-table
+  - npm install
+  - ps: dotnet publish demo.picnictable.csproj -c release -r win-x86 -o ./output --self-contained
 
-after_test:
+artifacts:
+  - path: demo.picnic\output
+    name: vuejs-picnic
+  - path: demo.picnictable\output
+    name: vuejs-picnictable
+
+# after_test:
 #  - ps: Vsix-PushArtifacts | Vsix-PublishToGallery
 # add the nuget artifact.
 #  - appveyor PushArtifact HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.0.9.0.nupkg
