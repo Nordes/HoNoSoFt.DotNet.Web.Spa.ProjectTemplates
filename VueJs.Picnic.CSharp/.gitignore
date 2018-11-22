@@ -2,7 +2,7 @@
 node_modules/
 npm-debug.log
 
-/Properties/launchSettings.json
+# /Properties/launchSettings.json
 
 package-lock.json
 
