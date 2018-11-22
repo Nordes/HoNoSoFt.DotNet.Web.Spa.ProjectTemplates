@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using VueJs.PicnicTable.CSharp.Extensions;
 
 namespace VueJs.PicnicTable.CSharp
 {
@@ -56,9 +57,9 @@ namespace VueJs.PicnicTable.CSharp
                 {
                     options.EnableForHttps = true;
                 });
-            
+
             // Example with dependency injection for a data provider.
-            services.AddSingleton<Providers.IWeatherProvider, Providers.WeatherProviderFake>();
+            services.AddWeather();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,15 +92,7 @@ namespace VueJs.PicnicTable.CSharp
 
             // Idea: https://code.msdn.microsoft.com/How-to-fix-the-routing-225ac90f
             // This avoid having a real mvc view.
-            app.Use(async (context, next) => 
-                { 
-                    await next(); 
-                    if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value)) 
-                    { 
-                        context.Request.Path = "/index.html"; 
-                        await next(); 
-                    } 
-                });
+            app.UseSpa();
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseMvc();
