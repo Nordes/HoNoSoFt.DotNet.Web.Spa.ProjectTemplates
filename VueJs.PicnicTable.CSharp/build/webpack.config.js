@@ -7,21 +7,19 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const BaseConfig = require('./base.config')
 const rimraf = require('rimraf')
 var _rootDir = path.resolve(__dirname, '..')
 
-var args = process.argv
-var isProduction = args.indexOf('--prod', 0) >= 0
 const bundleOutputDir = './wwwroot/dist'
 
-console.info(`Building for production: ` + isProduction)
+console.info(`Building for production: ${BaseConfig.isProduction}`)
 rimraf.sync(path.resolve(_rootDir, 'wwwroot/**/*'), { silent: true })
 
 module.exports = {
   name: 'app',
-  mode: isProduction ? 'production' : 'development',
-  stats: isProduction ? 'errors-only' : 'normal',
+  mode: BaseConfig.isProduction ? 'production' : 'development',
+  stats: BaseConfig.isProduction ? 'errors-only' : 'normal',
   entry: { 'main': './ClientApp/app.js' }, // 'polyfill': "@babel/polyfill" could also be added here.
   resolve: {
     extensions: ['.js', '.vue'],
@@ -49,20 +47,19 @@ module.exports = {
         }
       }
     },
-    // minimize: isProduction,
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: !isProduction // set to true if you want JS source maps
+        sourceMap: !BaseConfig.isProduction // set to true if you want JS source maps
       }),
       new OptimizeCSSAssetsPlugin({})
     ],
-    nodeEnv: isProduction ? 'production' : 'development'
+    nodeEnv: BaseConfig.isProduction ? 'production' : 'development'
   },
   output: {
     path: path.resolve(_rootDir, 'wwwroot/dist'),
-    filename: !isProduction ? '[name].js' : '[name].[hash].js',
+    filename: !BaseConfig.isProduction ? '[name].js' : '[name].[hash].js',
     publicPath: '/dist/'
   },
   module: {
@@ -94,7 +91,7 @@ module.exports = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'vue-style-loader',
+          BaseConfig.isProduction ? MiniCssExtractPlugin.loader : 'vue-style-loader',
           'css-loader',
           'sass-loader'
         ]
@@ -114,8 +111,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // https://itnext.io/vue-js-and-webpack-4-from-scratch-part-2-5038cc9deffb
-    // new webpack.HotModuleReplacementPlugin(), // <== To see if needed.
     new VueLoaderPlugin(),
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, '../ClientApp/static/'), to: '../static/', ignore: ['.*'] },
@@ -124,24 +119,20 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: path.resolve(_rootDir, 'wwwroot/index.html'),
       template: path.resolve(_rootDir, 'ClientApp/index.html'),
-      inject: true
+      inject: true,
+      templateParameters: {
+        'baseHref': BaseConfig.baseUriPath
+      }
     })
-  ].concat(isProduction ? [
-    // // // Compress extracted CSS.
-    // new OptimizeCSSPlugin({
-    //   cssProcessorOptions: {
-    //     safe: true
-    //   },
-    // }),
+  ].concat(BaseConfig.isProduction ? [
     new MiniCssExtractPlugin({
-      filename: !isProduction ? 'css/[name].css' : 'css/[name].[hash].css'
-      // publicPath: '../',
+      filename: !BaseConfig.isProduction ? 'css/[name].css' : 'css/[name].[hash].css'
     })
-  ] : [ // Development
-    // Plugins that apply in development builds only
+  ] : [
+  ]).concat(BaseConfig.generateMapFiles ? [
     new webpack.SourceMapDevToolPlugin({
       filename: '[file].map', // Remove this line if you prefer inline source maps
       moduleFilenameTemplate: path.relative(bundleOutputDir, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
     })
-  ])
+  ] : [])
 }

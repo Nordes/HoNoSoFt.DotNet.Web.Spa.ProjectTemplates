@@ -3,7 +3,7 @@
     <div class="brand">
       <img
         class="logo"
-        src="/static/images/logo.png"
+        src="static/images/logo.png"
         alt="VueJs Core"
       >
       <span
