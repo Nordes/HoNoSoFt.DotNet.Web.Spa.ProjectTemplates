@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "HoNoSoFt.BitBucket.Stats": {
+    "VueJs.Picnic.CSharp": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",
