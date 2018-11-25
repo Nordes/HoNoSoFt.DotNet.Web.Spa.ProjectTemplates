@@ -7,7 +7,7 @@ import store from './store'
 import { sync } from 'vuex-router-sync'
 import VeeValidate from 'vee-validate'
 import { i18n, loadLanguageAsync } from './_i18n/setup'
-import App from './App.vue'
+import App from './app.vue'
 require('./assets/custom_picnic.scss')
 require('./assets/site.scss')
 
