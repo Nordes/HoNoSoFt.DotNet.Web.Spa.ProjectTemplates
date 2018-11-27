@@ -1,0 +1,13 @@
+node_modules/
+obj/
+bin/
+
+wwwroot/**
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+.dockerignore

@@ -15,9 +15,8 @@ WORKDIR /source
 RUN apk add --update nodejs nodejs-npm
 COPY *.csproj .
 RUN dotnet restore
-COPY package.json .
-RUN npm install
 COPY . .
+# Publishing will also restore (install) the npm packages.
 RUN dotnet publish -c Release -o /app/
 
 # Stage 2 - Creating Image for compiled app

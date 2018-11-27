@@ -1,6 +1,6 @@
 ####################################################
 # To build your own image: 
-#    > docker build -t honosoft/vuejs-picnictable:latest -t honosoft/vuejs-picnictable:1.0 .
+#    > docker build -t honosoft/vuejs-picnictable:latest -t honosoft/vuejs-picnictable:1.4.0 .
 # To run your image once it's ready:
 #    > docker run -d -p 8080:80 --name vuejs-picnictable honosoft/vuejs-picnictable
 # To push the image into your docker repository:
@@ -15,9 +15,8 @@ WORKDIR /source
 RUN apk add --update nodejs nodejs-npm
 COPY *.csproj .
 RUN dotnet restore
-COPY package.json .
-RUN npm install
 COPY . .
+# Publishing will also restore (install) the npm packages.
 RUN dotnet publish -c Release -o /app/
 
 # Stage 2 - Creating Image for compiled app
