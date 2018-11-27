@@ -32,7 +32,7 @@ namespace VueJs.PicnicTable.CSharp.Controllers
         [ProducesResponseType((int)System.Net.HttpStatusCode.BadRequest)]
         public IActionResult Forecasts([FromQuery(Name = "from")] int from = 0, [FromQuery(Name = "to")] int to = 4)
         {
-            //System.Threading.Thread.Sleep(500); // Fake latency
+            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1)); // Fake latency
             var quantity = to - from;
 
             // We should also avoid going too far in the list.

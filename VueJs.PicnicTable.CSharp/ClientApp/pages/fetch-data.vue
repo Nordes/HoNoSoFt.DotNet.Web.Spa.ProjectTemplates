@@ -1,6 +1,13 @@
 <template>
   <div>
     <page-title title="Weather Forecast" />
+    
+    <div v-if="!forecasts" class="flex one text-center">
+      <!-- demo for a spinner -->
+      <p><em>Loading...</em></p>
+      <div><icon icon="icon-spinner spinner-big" :spin="true" /></div>
+    </div>
+
     <div class="flex one clear-side">
       <table v-if="forecasts">
         <thead>
