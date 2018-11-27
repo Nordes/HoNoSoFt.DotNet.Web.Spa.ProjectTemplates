@@ -1,5 +1,5 @@
 [![NuGet](https://img.shields.io/nuget/v/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.svg)](https://www.nuget.org/packages/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/) 
-![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.3.26.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
+![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.4.0.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
 
 # <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS
 
@@ -21,7 +21,8 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
     - [Before publishing](#before-publishing)
     - [Publishing](#publishing)
     - [Extra if you use NginX](#extra-if-you-use-nginx)
-  - [Docker container](#docker-container)
+  - [Docker](#docker)
+    - [Docker - Build yourself](#docker---build-yourself)
   - [Some Automation](#some-automation)
     - [Kestrel serving using Gzip compression](#kestrel-serving-using-gzip-compression)
     - [Base components](#base-components)
@@ -113,10 +114,16 @@ module.exports = {
 
 When you will publish next time, the path will then be taken into account and it will sets automatically the base uri path.
 
-## Docker container
-Since containers in docker are quite popular, a Dockerfile template is also included within the template. The help in order to build the template is also within that file.
+## Docker
+The project already add some docker container available through the Docker Hub. You can pull the image if you want. It will make the sample available locally. The image is using the Alpine version so it only use a small footprint.
 
-Before building/publishing, ensure that you have Docker installed.
+* [vuejs-picnic](https://hub.docker.com/r/honosoft/vuejs-picnic/)
+* [vuejs-picnictable](https://hub.docker.com/r/honosoft/vuejs-picnictable/)
+
+### Docker - Build yourself
+Since containers in docker are quite popular, a `Dockerfile` is also included within the template root folder. The help in order to build the template is also within that file. Don't forget the `.dockerignore` where some files are being ignored in order to avoid some unwanted file to be copied before publishing.
+
+> Ensure that you have Docker installed :)
 
 ## Some Automation
 
