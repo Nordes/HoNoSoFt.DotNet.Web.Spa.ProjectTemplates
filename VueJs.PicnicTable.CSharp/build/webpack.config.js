@@ -60,7 +60,11 @@ module.exports = {
   output: {
     path: path.resolve(_rootDir, 'wwwroot/dist'),
     filename: !BaseConfig.isProduction ? '[name].js' : '[name].[hash].js',
-    publicPath: '/dist/'
+    // publicPath: In production we don't use webpack hot reload, so it should be alright.
+    // the usage of the ./ at the beginning is for the basePath to be properly used. See
+    // BaseConfig.baseUriPath. The webpack hot reload require the official URI path or you
+    // will get errors in your console.
+    publicPath: BaseConfig.isProduction ? './dist/' : '/dist/'
   },
   module: {
     rules: [
