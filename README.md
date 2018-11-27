@@ -1,5 +1,5 @@
 [![NuGet](https://img.shields.io/nuget/v/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.svg)](https://www.nuget.org/packages/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/) 
-![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.3.8.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
+![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.3.26.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
 
 # <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS
 
@@ -10,13 +10,18 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
 # Table Of Contents
 - [<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS](#img-src%22httpsgithubcomnordeshonosoftdotnetwebspaprojecttemplatesrawmastervuejspicniccsharpclientappstaticimageslogopng%22-height%2230%22--dotnet-core-21--vuejs--picnic-css)
 - [Table Of Contents](#table-of-contents)
-  - [Release 1.3.8](#release-138)
+  - [Release](#release)
   - [Technology inside](#technology-inside)
     - [Template: vuejs-picnic](#template-vuejs-picnic)
     - [Template: vuejs-picnic-table](#template-vuejs-picnic-table)
   - [Installation](#installation)
     - [Update your installation?](#update-your-installation)
     - [Uninstallation? Because it could happen](#uninstallation-because-it-could-happen)
+  - [Publishing your application](#publishing-your-application)
+    - [Before publishing](#before-publishing)
+    - [Publishing](#publishing)
+    - [Extra if you use NginX](#extra-if-you-use-nginx)
+  - [Docker container](#docker-container)
   - [Some Automation](#some-automation)
     - [Kestrel serving using Gzip compression](#kestrel-serving-using-gzip-compression)
     - [Base components](#base-components)
@@ -27,17 +32,14 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
     - [Responsive design](#responsive-design)
     - [Responsive menu](#responsive-menu)
   - [Stats](#stats)
+    - [VueJs-Picnic template](#vuejs-picnic-template)
+    - [VueJs-PicnicTable template](#vuejs-picnictable-template)
   - [More information about what's inside or how it works?](#more-information-about-whats-inside-or-how-it-works)
   - [About the author](#about-the-author)
   - [License](#license)
 
-## Release 1.3.8
-- **Bugfix** Routes were not behaving properly in the picnictable due to the language
-- **Bugfix** Glitch with article tags showing over the overlay
-- **New** Translation in French is complete (no more will be done, JP is there, but at a minimum)
-- **Updated** Appveyor build is now fully automated
-
-Older version, please see [release notes](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/wiki/Release-Notes).
+## Release
+Please see [release notes](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/wiki/Release-Notes). I am trying to keep it updated.
 
 ## Technology inside
 ### Template: vuejs-picnic
@@ -84,6 +86,38 @@ Type the following command from the shell:
 > dotnet new -u HoNoSoFt.DotNet.Web.Spa.ProjectTemplates
 ```
 
+## Publishing your application
+### Before publishing
+You need to ensure that your wwwroot is empty before starting the process.
+
+### Publishing
+Simply use the normal way of publishing using DotNet Core CLI
+
+```bash
+> dotnet publish your.project.csproj -c release -o ./publish/
+```
+
+You can also add all the other parameter from the dotnet cli. Please [visit the MSDN site](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish?tabs=netcore21) to know more about it.
+This will do a rebuild of your project and then after it will use the special target to rebuild your client (vuejs) in production mode.
+
+### Extra if you use NginX
+You might need to have more configuration in case of publishing behing a NginX server. Let's say you have your base site `http://www.example.com` and that in your NginX configuration you would like to have your dotnet app within `http://www.example.com/myApp`. You will need in such a scenario to set the base uri for the index.html. Instead of doing that manually between development and production, you have the file `./build/base.prod.config.js` which contains a possible override.
+
+Simply set your override like the following:
+
+```javascript
+module.exports = {
+  baseUriPath: '/myApp/'
+}
+```
+
+When you will publish next time, the path will then be taken into account and it will sets automatically the base uri path.
+
+## Docker container
+Since containers in docker are quite popular, a Dockerfile template is also included within the template. The help in order to build the template is also within that file.
+
+Before building/publishing, ensure that you have Docker installed.
+
 ## Some Automation
 
 ### Kestrel serving using Gzip compression
@@ -129,14 +163,26 @@ I don't think I should go more in depth on that topic. There is a sample in the 
 ![Sample responsive menu](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive-menu.png "Sample responsive menu")
 
 ## Stats
+The following stats are for the main content of the template. The Fontello is ommited, but if you want to know, it's about 2kb total all the file downloaded within the browser.
 
+**Tips:**
+> Vendors files are the library from within nodejs we use (i.e.: VueJs and VueRouter just to name it)
+
+### VueJs-Picnic template
 | File | Development | Production (with gzip) |
 |---|---------------|------------|
-| main.css | -- | 7.5 kb (contains `picnic.(s)css`) |
-| main.js | tbd kb | 4.4 kb |
-| vendors.js | tbd kb | 43.4 kb |
+| main.css | N/A | 8 kb |
+| main.js | 225 kb | 5.5 kb |
+| vendors.js | 558 kb | 43.5 kb |
 
-> Vendors files are the library from within nodejs we use (i.e.: VueJs and VueRouter just to name it)
+### VueJs-PicnicTable template
+| File | Development | Production (with gzip) |
+|---|---------------|------------|
+| main.css | N/A | 8 kb |
+| main.js | 250 kb | 8 kb |
+| vendors.js | 857 kb | 73.9 kb |
+
+The reason why it's a little bit bigger is because we have 1 more page and then a few extra components within the template (such as Vee-validate, I18n, etc.).
 
 ## More information about what's inside or how it works?
 The wiki is currently under construction. So please visit sometimes ;).
