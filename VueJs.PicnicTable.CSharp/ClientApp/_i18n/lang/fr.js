@@ -6,6 +6,11 @@ const messages = {
     extraStuff: 'Chose Extra',
     about: 'À Propos'
   },
+  cookieConsent: {
+    message: 'Ce site web utilise des cookies.',
+    moreDetails: 'Plus de détails peut être donné ici',
+    accept: `J'accepte`
+  },
   navMenu: {
     title: 'VueJs Core',
     lang: {

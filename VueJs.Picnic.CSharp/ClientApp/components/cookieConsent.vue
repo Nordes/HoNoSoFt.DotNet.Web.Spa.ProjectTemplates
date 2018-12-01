@@ -1,17 +1,15 @@
 <template>
   <div id="cookieConsent" :class="{ hideConsent: !showConsent}">
-    <div id="closeCookieConsent" @click="toggleContent">X</div>
+    <div id="closeCookieConsent" @click="toggleContent">x</div>
     <div class="flex one text-center">
-      <span>{{$t('cookieConsent.message')}}</span>
-      <span><a href="#" class="button" style="width:400px" target="_blank">{{ $t('cookieConsent.moreDetails') }}</a></span>
-      <span><a @click="toggleContent" style="width:400px" class="button success">{{ $t('cookieConsent.accept') }}</a></span>
+      <span>This website is using cookies.</span>
+      <span><a href="#" class="button" style="width:400px" target="_blank">More details can be found here</a></span>
+      <span><a @click="toggleContent" style="width:400px" class="button success">I accept</a></span>
     </div>
   </div>
 </template>
 
 <script>
-// The state could have been done through Vuex. But here, we show that it's also possible to do
-// all within the component itself.
 export default {
   data () {
     var data = localStorage.getItem('store.cookieConsent');

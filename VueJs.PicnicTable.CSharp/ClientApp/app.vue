@@ -5,7 +5,7 @@
       id="content"
       class="main-content"
     />
-    <cookie-consent></cookie-consent>
+    <cookie-consent />
   </div>
 </template>
 
