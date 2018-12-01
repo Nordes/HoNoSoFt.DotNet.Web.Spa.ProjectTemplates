@@ -89,7 +89,8 @@ export default {
   },
 
   async created () {
-    this.loadPage(1)
+    // Fake some delay in order to display the spinner
+    setTimeout(this.loadPage, 1000, 1)
   },
 
   methods: {
