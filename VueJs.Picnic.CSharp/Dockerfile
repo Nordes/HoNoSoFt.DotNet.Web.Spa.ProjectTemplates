@@ -1,6 +1,6 @@
 ####################################################
 # To build your own image: 
-#    > docker build -t honosoft/vuejs-picnic:latest -t honosoft/vuejs-picnic:1.0 .
+#    > docker build -t honosoft/vuejs-picnic:latest -t honosoft/vuejs-picnic:1.5.0 .
 # To run your image once it's ready:
 #    > docker run -d -p 8080:80 --name vuejs-picnic honosoft/vuejs-picnic
 # To push the image into your docker repository:
