@@ -26,5 +26,5 @@ module.exports = {
   // forget that normally you don't want this in production.
   //
   // default: false
-  generateMapFiles: CurrentEnvironment.hasOwnProperty('generateMapFiles') ? CurrentEnvironment.baseUriPath : false
+  generateMapFiles: CurrentEnvironment.hasOwnProperty('generateMapFiles') ? CurrentEnvironment.generateMapFiles : false
 }
