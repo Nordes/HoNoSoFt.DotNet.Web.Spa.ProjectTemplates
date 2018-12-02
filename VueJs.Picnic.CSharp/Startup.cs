@@ -27,8 +27,12 @@ namespace VueJs.Picnic.CSharp
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
             services.AddResponseCompression(options =>
                 {
+#if (!NoHttps)
                     options.EnableForHttps = true;
+#endif
                 });
+
+            services.AddSpaStaticFiles(config => { config.RootPath = "wwwroot/"; });
 
             // Example with dependency injection for a data provider.
             services.AddWeather();
@@ -40,30 +44,49 @@ namespace VueJs.Picnic.CSharp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                // Should be used only in dev. mode! It attach the hot-reload
-                // automatically to the project/webpack.
-                app.UseWebpackDevMiddleware(
-                    new WebpackDevMiddlewareOptions
-                    {
-                        HotModuleReplacement = true,
-                        ConfigFile = "./build/webpack.config.js"
-                    });
             }
             else
             {
+                app.UseExceptionHandler("/Error");
+#if (!NoHttps)
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
+#else
+            }
+#endif
+
             app.UseResponseCompression(); // No need if you use IIS, but really something good for Kestrel!
 
             // Idea: https://code.msdn.microsoft.com/How-to-fix-the-routing-225ac90f
             // This avoid having a real mvc view. You have other way of doing, but this one works
             // properly.
-            app.UseSpa();
+            // app.UseSpa();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc();
+            app.UseSpaStaticFiles();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action=Index}/{id?}");
+            });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ClientApp";
+
+                if (env.IsDevelopment())
+                {
+                    spa.ApplicationBuilder.UseWebpackDevMiddleware(
+                        new WebpackDevMiddlewareOptions
+                        {
+                            HotModuleReplacement = true,
+                            ConfigFile = "./build/webpack.config.js"
+                        });
+                }
+            });
         }
     }
 }

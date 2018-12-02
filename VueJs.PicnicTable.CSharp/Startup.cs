@@ -55,8 +55,12 @@ namespace VueJs.PicnicTable.CSharp
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
             services.AddResponseCompression(options =>
                 {
+#if (!NoHttps)
                     options.EnableForHttps = true;
+#endif
                 });
+
+            services.AddSpaStaticFiles(config => { config.RootPath = "wwwroot/"; });
 
             // Example with dependency injection for a data provider.
             services.AddWeather();
@@ -68,18 +72,19 @@ namespace VueJs.PicnicTable.CSharp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseWebpackDevMiddleware(
-                    new WebpackDevMiddlewareOptions {
-                        HotModuleReplacement = true,
-                        ConfigFile = "./build/webpack.config.js"
-                    }); // Should be used only in dev. mode!
             }
             else
             {
+                app.UseExceptionHandler("/Error");
+#if (!NoHttps)
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
+#else
+            }
+#endif
             app.UseResponseCompression(); // This is especially true for Kestrel!
             
             // Enable middleware to serve generated Swagger as a JSON endpoint.
@@ -90,12 +95,30 @@ namespace VueJs.PicnicTable.CSharp
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            // Idea: https://code.msdn.microsoft.com/How-to-fix-the-routing-225ac90f
-            // This avoid having a real mvc view.
-            app.UseSpa();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-            app.UseMvc();
+            app.UseSpaStaticFiles();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action=Index}/{id?}");
+            });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "ClientApp";
+
+                if (env.IsDevelopment())
+                {
+                    spa.ApplicationBuilder.UseWebpackDevMiddleware(
+                        new WebpackDevMiddlewareOptions
+                        {
+                            HotModuleReplacement = true,
+                            ConfigFile = "./build/webpack.config.js"
+                        });
+                }
+            });
         }
     }
 }
