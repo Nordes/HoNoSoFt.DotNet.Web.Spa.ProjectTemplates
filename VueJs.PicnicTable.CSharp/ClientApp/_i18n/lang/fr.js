@@ -24,7 +24,7 @@ const messages = {
     message: 'Page non trouvée'
   },
   home: {
-    title: '.Net Core 2.1 / SPA alimenté par VueJS et Picnic CSS',
+    title: '.Net Core 2.2 / SPA alimenté par VueJS et Picnic CSS',
     welcome: 'Bienvenu sur votre nouvelle monopage applicative, construite avec:',
     welcomeHtml: `
     <li><a href="https://get.asp.net/">ASP.NET Core</a> et <a href="https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx">C#</a> pour du code serveur multi-plateforme</li>

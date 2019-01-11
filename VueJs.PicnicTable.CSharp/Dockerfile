@@ -10,7 +10,7 @@
 ####################################################
 
 # Build the container with Source code compiled
-FROM microsoft/dotnet:2.1.500-sdk-alpine3.7 as buildenv
+FROM microsoft/dotnet:dotnet:2.2-sdk-alpine3.8 as buildenv
 WORKDIR /source
 RUN apk add --update nodejs nodejs-npm
 COPY *.csproj .
@@ -20,7 +20,7 @@ COPY . .
 RUN dotnet publish -c Release -o /app/
 
 # Stage 2 - Creating Image for compiled app
-FROM microsoft/dotnet:2.1.6-aspnetcore-runtime-alpine3.7 as baseimage
+FROM microsoft/dotnet:2.2-runtime-alpine3.8 as baseimage
 RUN addgroup -S coreApp && adduser -S -G coreApp coreApp
 RUN apk add --update nodejs nodejs-npm
 

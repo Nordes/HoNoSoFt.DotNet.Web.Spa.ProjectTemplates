@@ -8,7 +8,7 @@
         <License>Resources\LICENSE</License>
         <Icon>Resources\honosoft-128px.png</Icon>
         <PreviewImage>Resources\honosoft-128px.png</PreviewImage>
-        <Tags>Project Template, .Net Core 2.1, VueJs, Picnic CSS</Tags>
+        <Tags>Project Template, .Net Core 2.2, VueJs, Picnic CSS</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0, 16.0)" />
