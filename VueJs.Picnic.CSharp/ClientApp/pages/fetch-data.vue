@@ -1,6 +1,13 @@
 <template>
   <div>
     <page-title title="Weather Forecast" />
+
+    <div v-if="!forecasts" class="flex one text-center">
+      <!-- demo for a spinner -->
+      <p><em>Loading...</em></p>
+      <div><icon icon="icon-spinner spinner-big" :spin="true" /></div>
+    </div>
+
     <div class="flex one clear-side">
       <table v-if="forecasts">
         <thead>
@@ -37,7 +44,7 @@
           <span
             :class="'button paging' + (n == currentPage ? ' success active' : '')"
             @click="loadPage(n)"
-        >{{ n }}</span></div>
+          >{{ n }}</span></div>
         <div><span
           class="button paging"
           :disabled="nextDisabled"
@@ -82,7 +89,8 @@ export default {
   },
 
   async created () {
-    this.loadPage(1)
+    // Fake some delay in order to display the spinner
+    setTimeout(this.loadPage, 1000, 1)
   },
 
   methods: {
@@ -99,7 +107,7 @@ export default {
       try {
         var from = (page - 1) * (this.pageSize)
         var to = from + this.pageSize
-        let response = await this.$http.get(`/api/weather/forecasts?from=${from}&to=${to}`)
+        let response = await this.$http.get(`api/weather/forecasts?from=${from}&to=${to}`)
         console.log(response.data.forecasts)
         this.forecasts = response.data.forecasts
         this.total = response.data.total

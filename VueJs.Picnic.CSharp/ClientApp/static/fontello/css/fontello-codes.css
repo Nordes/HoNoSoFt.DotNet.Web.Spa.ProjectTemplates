@@ -2,6 +2,7 @@
 .icon-counter:before { content: '\e800'; } /* '' */
 .icon-home:before { content: '\e802'; } /* '' */
 .icon-about:before { content: '\e804'; } /* '' */
+.icon-spinner:before { content: '\e831'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-list-bullet:before { content: '\f0ca'; } /* '' */
 .icon-github:before { content: '\f300'; } /* '' */

@@ -9,6 +9,18 @@ nav.dark {
   background-color: $theme-dark-color;
 }
 
+// Bug fix in the template. The card somehow does not react well for no apparent reason.
+// This is not the proper solution especially if you start using card within a popup.
+article.card {
+  header,
+    content,
+    footer {
+      position: inherit !important;
+    }
+
+  position: inherit !important;
+}
+
 @media all and (max-width: $picnic-breakpoint) {
   %nav {
     .burger~.menu {

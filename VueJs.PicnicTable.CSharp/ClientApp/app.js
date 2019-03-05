@@ -7,7 +7,7 @@ import store from './store'
 import { sync } from 'vuex-router-sync'
 import VeeValidate from 'vee-validate'
 import { i18n, loadLanguageAsync } from './_i18n/setup'
-import App from './App.vue'
+import App from './app.vue'
 require('./assets/custom_picnic.scss')
 require('./assets/site.scss')
 
@@ -45,15 +45,33 @@ requireComponent.keys().forEach(fileName => {
 
 Vue.prototype.$http = axios
 Vue.use(VeeValidate)
-// Vue.use(VueI18n)
 var _loadLanguageAsync = loadLanguageAsync
+
 router.beforeEach((to, from, next) => {
-  const lang = to.params.lang
-  _loadLanguageAsync(lang).then(() => next()).catch(err => {
-    console.log('Language unknown : ' + err)
-    next('/404')
-  })
+  let lang = to.params.lang
+  let thatStore = store
+
+  if (lang === null || lang === undefined) {
+    // console.debug(`Set default language to "${store.state.i18n.lang}" from the local storage`)
+    // Usually the language is set by default during the init.
+    lang = store.state.i18n.lang === null ? i18n.locale : store.state.i18n.lang // default
+  }
+
+  _loadLanguageAsync(lang)
+    .then(() => {
+      // Save the new value if necessary
+      if (thatStore.state.i18n.lang !== lang) {
+        thatStore.dispatch('i18n/changeLocale', { lang })
+      }
+    })
+    .then(() => next())
+    .catch(err => {
+      console.log('Unknown language : ' + err)
+      next('/404')
+    })
 })
+
+store.dispatch('i18n/init', { lang: i18n.locale })
 
 sync(store, router)
 

@@ -2,6 +2,7 @@
   <div>
     <page-title title="Extra stuff" />
     <h2>What's on the Picnic Table ;)</h2>
+    <p>「This page will not be translated」</p>
     <ul>
       <li><a href="./swagger/">Swagger</a> (SwashBuckle)</li>
       <ul>

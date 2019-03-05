@@ -5,8 +5,8 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VueJs.Picnic.CSharp", "VueJs.Picnic.CSharp\VueJs.Picnic.CSharp.csproj", "{6B3E8EE8-92E3-41CE-A356-A5F880EEA367}"
 EndProject
-# Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoNoSoFt.DotNet.Web.Spa.ProjectTemplates", "vsix\HoNoSoFt.DotNet.Web.Spa.ProjectTemplate\HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.csproj", "{0446B628-40C0-47E6-B37A-F20293A6C95D}"
-# EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VueJs.PicnicTable.CSharp", "VueJs.PicnicTable.CSharp\VueJs.PicnicTable.CSharp.csproj", "{8DEDA817-6C63-4AB4-9E95-10819044311D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,18 +29,18 @@ Global
 		{6B3E8EE8-92E3-41CE-A356-A5F880EEA367}.Release|x64.Build.0 = Release|Any CPU
 		{6B3E8EE8-92E3-41CE-A356-A5F880EEA367}.Release|x86.ActiveCfg = Release|Any CPU
 		{6B3E8EE8-92E3-41CE-A356-A5F880EEA367}.Release|x86.Build.0 = Release|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Debug|x64.Build.0 = Debug|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Debug|x86.Build.0 = Debug|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Release|x64.ActiveCfg = Release|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Release|x64.Build.0 = Release|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Release|x86.ActiveCfg = Release|Any CPU
-		{0446B628-40C0-47E6-B37A-F20293A6C95D}.Release|x86.Build.0 = Release|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Debug|x64.Build.0 = Debug|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Debug|x86.Build.0 = Debug|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Release|x64.ActiveCfg = Release|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Release|x64.Build.0 = Release|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Release|x86.ActiveCfg = Release|Any CPU
+		{8DEDA817-6C63-4AB4-9E95-10819044311D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
