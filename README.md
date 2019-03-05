@@ -1,14 +1,14 @@
 [![NuGet](https://img.shields.io/nuget/v/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.svg)](https://www.nuget.org/packages/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/) 
 ![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.3.2.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
 
-# <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS
+# <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.2 + VueJs + Picnic CSS
 
-Idea is to have the small, but really versatile and responsive UI using .Net Core 2.1, VueJS and Picnic CSS. The API's are easy to manage using .Net Core WebAPI classes. If you prefer to use Bootstrap and a different, but quite similar template, there's already [another project](https://github.com/MarkPieszak/aspnetcore-Vue-starter). This template have been created from scratch using some bit of code I've commited in the other project.
+Idea is to have the small, but really versatile and responsive UI using .Net Core 2.2, VueJS and Picnic CSS. The API's are easy to manage using .Net Core WebAPI classes. If you prefer to use Bootstrap and a different, but quite similar template, there's already [another project](https://github.com/MarkPieszak/aspnetcore-Vue-starter). This template have been created from scratch using some bit of code I've commited in the other project.
 
 This is wanted to be simple a SPA with a minimum dependencies or performance issues. It can however be modified as you please. The VueJs is configured with Vuex, but this can be removed if you don't feel it meets your requirement. The same goes for the CSS framework.
 
 # Table Of Contents
-- [<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.1 + VueJs + Picnic CSS](#img-src%22httpsgithubcomnordeshonosoftdotnetwebspaprojecttemplatesrawmastervuejspicniccsharpclientappstaticimageslogopng%22-height%2230%22--dotnet-core-21--vuejs--picnic-css)
+- [<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.2 + VueJs + Picnic CSS](#img-src%22httpsgithubcomnordeshonosoftdotnetwebspaprojecttemplatesrawmastervuejspicniccsharpclientappstaticimageslogopng%22-height%2230%22--dotnet-core-22--vuejs--picnic-css)
 - [Table Of Contents](#table-of-contents)
   - [New in 1.3.0](#new-in-130)
   - [Technology inside](#technology-inside)
@@ -51,7 +51,7 @@ Older version, please see [release notes](https://github.com/Nordes/HoNoSoFt.Dot
 ### Template: vuejs-picnic
 | Tech | Tech | Tech |
 |:----:|:----:|:----:|
-| .Net Core 2.1 | VueJs | Webpack 4 |
+| .Net Core 2.2 | VueJs | Webpack 4 |
 | Picnic CSS | VueX | Babel |
 | Fontello | Vue-Router | Eslint (standard+vuejs-recommended) |
 
@@ -60,7 +60,7 @@ Older version, please see [release notes](https://github.com/Nordes/HoNoSoFt.Dot
 ### Template: vuejs-picnic-table
 | Tech | Tech | Tech |
 |:----:|:----:|:----:|
-| .Net Core 2.1 | VueJs | Webpack 4 |
+| .Net Core 2.2 | VueJs | Webpack 4 |
 | Picnic CSS | VueX | Babel |
 | Fontello | Vue-Router | Eslint (standard+vuejs-recommended) |
 | **Vue-i18n** | **Swagger** | **Vee-validate** |

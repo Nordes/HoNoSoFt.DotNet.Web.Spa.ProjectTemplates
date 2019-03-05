@@ -4,7 +4,7 @@
     <id>HoNoSoFt.DotNet.Web.Spa.ProjectTemplates</id>
     <authors>Nordes Menard-Lamarre</authors>
     <description>
-      Light template for ASP.NET Core 2.1 WebApi and Vue.js 2.5.18 Client app and Picnic CSS with webpack and hot reloading
+      Light template for ASP.NET Core 2.2 WebApi and Vue.js 2.5.18 Client app and Picnic CSS with webpack and hot reloading
     </description>
     <packageTypes>
       <packageType name="Template" />
