@@ -10,19 +10,19 @@
 ####################################################
 
 # Build the container with Source code compiled
-FROM microsoft/dotnet:2.2-sdk-alpine3.8 as buildenv
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine3.8 as buildenv
 WORKDIR /source
 RUN apk add --update nodejs nodejs-npm
 COPY *.csproj .
 RUN dotnet restore
 COPY . .
 # Publishing will also restore (install) the npm packages.
-RUN dotnet publish -c Release -o /app/
+RUN dotnet publish -c Release -o /app/ -r linux-musl-x64
 
 # Stage 2 - Creating Image for compiled app
-FROM microsoft/dotnet:2.2-runtime-alpine3.8 as baseimage
+FROM mcr.microsoft.com/dotnet/core/runtime:2.2-alpine3.8 as baseimage
 RUN addgroup -S coreApp && adduser -S -G coreApp coreApp
-RUN apk add --update nodejs nodejs-npm
+# RUN apk add --update nodejs nodejs-npm
 
 # Define other environment variable if needed.
 ENV ASPNETCORE_URLS=http://+:$port
