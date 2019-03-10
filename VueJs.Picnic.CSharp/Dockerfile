@@ -22,7 +22,6 @@ RUN dotnet publish -c Release -o /app/ -r linux-musl-x64
 # Stage 2 - Creating Image for compiled app
 FROM mcr.microsoft.com/dotnet/core/runtime:2.2-alpine3.8 as baseimage
 RUN addgroup -S coreApp && adduser -S -G coreApp coreApp
-# RUN apk add --update nodejs nodejs-npm
 
 # Define other environment variable if needed.
 ENV ASPNETCORE_URLS=http://+:$port
