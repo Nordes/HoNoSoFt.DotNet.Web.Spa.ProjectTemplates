@@ -1,12 +1,27 @@
 // $picnic-nav-sides: 0;
 $picnic-nav-position: inherit;
 $theme-dark-color: #222;
+$theme-dark-textcolor: #ddd;
 $green: #00AA55;
 
 @import "../../node_modules/picnic/src/picnic.scss";
 
-nav.dark {
-  background-color: $theme-dark-color;
+.body {
+  overflow:hidden;
+}
+
+.main {
+  display:flex; 
+  flex-direction:column;
+  min-height:100%; 
+  height:100%;
+}
+
+.container {
+  display:flex;
+  align-items: stretch;
+  flex:1;
+  overflow: hidden;
 }
 
 // Bug fix in the template. The card somehow does not react well for no apparent reason.
@@ -22,7 +37,26 @@ article.card {
 }
 
 @media all and (max-width: $picnic-breakpoint) {
+  nav.dark {
+    background-color: $theme-dark-color;
+  }
+
+  .topmenu {
+    display: none;
+  }
+
+  .main-content {
+    position: absolute;
+    margin-top: 3em;
+    padding:0.5em;
+  }
+
   %nav {
+    position:fixed;
+    flex: 0 0 100%;
+    justify-content: stretch;
+    flex-wrap: wrap;
+
     .burger~.menu {
       background-color: $theme-dark-color;
     }
@@ -45,69 +79,93 @@ article.card {
 }
 
 @media all and (min-width: $picnic-breakpoint) {
-  $picnic-nav-width: 18em !default;
-  // $picnic-nav-height_custom: inherit !important;
-
-  .main {
-    display: inline-flex;
-    min-height: 100%;
-    width: 100%;
+  nav.dark {
+    // background-color: $theme-dark-color;
+    border-right:1px #ddd solid;
   }
 
-  .main-content {
-    width: calc(100% - #{$picnic-nav-width});
-    margin-left: 0.5em;
+  .topmenu {
+    margin:0px; 
+    padding:0.5em;
+    height: 3em;
+    display:flex;
+    justify-content: space-between;
+    line-height: 2em;
+    background-color: $theme-dark-color;
+    color: $theme-dark-textcolor;
+    align-items: stretch;
+
+    .topmenu-flex {
+      display:flex;
+    }
+
+    .brandTop {
+      font-weight: bold; 
+      padding-right: 2em;
+      color: #fff;
+    }
+    
+    .logo {
+      height: 2em;
+      padding-right: 0.5em;
+    }
+
+    .user {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 
-  %nav,
+  $picnic-nav-width: 300px !default;
+
   .main-content {
-    display: inline-block;
-    vertical-align: top;
+    flex: 1; 
+    overflow:auto;
+    padding: 0.2em;
+  }
+
+  .brand {
+    display:none;
+  }
+
+  .navBis {
+    display:flex; flex: initial; width:300px;
   }
 
   %nav {
+    display: flex;
+    flex: initial;
+    vertical-align: top;
     z-index: inherit;
-    background: $theme-dark-color;
+    box-shadow: inherit;
+    // background: $theme-dark-color;
     right: inherit;
     width: $picnic-nav-width;
     height: inherit;
     padding: inherit;
 
-    .brand {
-      padding: 0.5em 0;
-      border-bottom: 1px #666 solid;
-      max-width: inherit;
-      font-size: 20px;
-    }
-
-    .brand,
     .menu {
       float: inherit;
       top: auto;
       clear: both;
-      padding-left: 0.5em;
       display: block;
 
-      // position: relative;
       -webkit-transform: inherit;
       transform: inherit;
 
       .nav-item {
-        display: block;
+        display: inline-flex;
         padding: 0.4em;
-        padding-left: inherit;
+        padding-left: 0.5em;
+        // border-radius: 0px 25px 25px 0px;
         width: 100%;
-        color: #CCC;
+        color: #444;
       }
 
       .nav-item.active {
-        color: #fff;
-        background: rgb(28, 66, 92);
+        color: #eee;
+        background: $blue;
       }
-    }
-
-    .menu {
-      padding-top: 0.5em;
     }
   }
 }
@@ -126,7 +184,6 @@ table {
 }
 
 .page-title {
-  border-bottom: 1px solid #ddd;
   margin-bottom: 1em;
   margin-left: -0.5em;
   padding-left: 0.5em;

@@ -4,7 +4,8 @@ const messages = {
     counter: 'Counter',
     fetchData: 'Fetch-data',
     extraStuff: 'Extra Stuff',
-    about: 'About'
+    about: 'About',
+    error404: 'Error: Page not found'
   },
   cookieConsent: {
     message: 'This website is using cookies.',

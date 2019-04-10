@@ -42,7 +42,7 @@
           class="nav-item"
           exact-active-class="active"
         >
-          <icon :icon="route.icon" /><span v-t="route.i18n" />
+          <icon :icon="route.meta.icon" /><span v-t="route.meta.i18n" />
         </router-link>
       </template>
     </div>

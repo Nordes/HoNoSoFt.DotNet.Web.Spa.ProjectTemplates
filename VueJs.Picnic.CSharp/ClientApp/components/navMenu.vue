@@ -25,13 +25,13 @@
     <div class="menu">
       <template v-for="(route, index) in routes">
         <router-link
-          v-if="route.showMenu"
+          v-if="route.meta && route.meta.showMenu && route.meta.showMenu === true"
           :key="index"
           :to="{ name: route.name, params: $route.params}"
           class="nav-item"
           exact-active-class="active"
         >
-          <icon :icon="route.icon" /><span>{{ route.display }}</span>
+          <icon :icon="route.meta.icon" /><span>{{ route.meta.display }}</span>
         </router-link>
       </template>
     </div>
