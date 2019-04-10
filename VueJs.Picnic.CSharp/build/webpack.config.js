@@ -9,12 +9,18 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const BaseConfig = require('./base.config')
 const rimraf = require('rimraf')
+const fs = require('fs')
 var _rootDir = path.resolve(__dirname, '..')
 
 const bundleOutputDir = './wwwroot/dist'
 
 console.info(`Building for production: ${BaseConfig.isProduction}`)
 rimraf.sync(path.resolve(_rootDir, 'wwwroot/**/*'), { silent: true })
+
+if (!BaseConfig.isProduction) {
+  fs.createReadStream(path.resolve(_rootDir, 'build/publishingLoader.html'))
+    .pipe(fs.createWriteStream(path.resolve(_rootDir, 'wwwroot/index.html')))
+}
 
 module.exports = {
   name: 'app',
