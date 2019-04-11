@@ -1,5 +1,5 @@
 <template>
-  <nav class="dark">
+  <nav :class="'dark' + collapsedClass">
     <div class="brand">
       <img
         class="logo"
@@ -41,10 +41,19 @@
           :to="{ name: route.name, params: $route.params}"
           class="nav-item"
           exact-active-class="active"
+          :title="$t(route.meta.i18n)"
         >
-          <icon :icon="route.meta.icon" /><span v-t="route.meta.i18n" />
+          <icon :icon="route.meta.icon" /><span v-if="!collapsed" v-t="route.meta.i18n" />
         </router-link>
       </template>
+
+      <div 
+        @click="toggleCollapsed"
+        class="pseudo button collapseToggle"
+        title="Collapse sidebar">
+        <h2 v-if="!collapsed">«</h2>
+        <h2 v-if="collapsed">»</h2>
+      </div>
     </div>
   </nav>
 </template>
@@ -53,6 +62,10 @@
 import { routes } from '../router/routes'
 export default {
   computed: {
+    collapsedClass: function () {
+      return this.collapsed === true ? ' collapsed' : ''
+    },
+
     sortedRoutes: function () {
       var desiredRoutes = routes.filter(f=> f.meta !== null && f.meta !== undefined && f.meta.order !== null && !isNaN(f.meta.order))
       return desiredRoutes.sort((f, g) => f.meta.order < g.meta.order ? -1 : f.meta.order === g.meta.order ? 0 : 1)
@@ -62,7 +75,7 @@ export default {
   data () {
     return {
       routes,
-      collapsed: true,
+      collapsed: false,
       langs: ['en', 'fr', 'ja'], // Could be more dynamic.
       langSelected: this.$i18n.locale // default
     }

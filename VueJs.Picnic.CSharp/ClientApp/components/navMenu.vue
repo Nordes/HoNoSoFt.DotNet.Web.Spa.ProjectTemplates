@@ -1,5 +1,5 @@
 <template>
-  <nav class="dark">
+  <nav :class="'dark' + collapsedClass">
     <div class="brand">
       <img
         class="logo"
@@ -30,10 +30,19 @@
           :to="{ name: route.name, params: $route.params}"
           class="nav-item"
           exact-active-class="active"
+          :title="route.meta.display"
         >
-          <icon :icon="route.meta.icon" /><span>{{ route.meta.display }}</span>
+          <icon :icon="route.meta.icon" /><span v-if="!collapsed">{{ route.meta.display }}</span>
         </router-link>
       </template>
+      
+      <div 
+        @click="toggleCollapsed"
+        class="pseudo button collapseToggle"
+        title="Collapse sidebar">
+        <h2 v-if="!collapsed">«</h2>
+        <h2 v-if="collapsed">»</h2>
+      </div>
     </div>
   </nav>
 </template>
@@ -41,10 +50,15 @@
 <script>
 import { routes } from '../router/routes'
 export default {
+  computed: {
+    collapsedClass: function () {
+      return this.collapsed === true ? ' collapsed' : ''
+    }
+  },
   data () {
     return {
       routes,
-      collapsed: true
+      collapsed: false
     }
   },
 

@@ -121,6 +121,7 @@ article.card {
   }
 
   $picnic-nav-width: 300px !default;
+  $picnic-nav-width-collapsed: 40px !important;
 
   .main-content {
     flex: 1; 
@@ -132,8 +133,16 @@ article.card {
     display:none;
   }
 
-  .navBis {
-    display:flex; flex: initial; width:300px;
+  .collapseToggle {
+    position:absolute; 
+    bottom:20px; 
+    right:-10px;
+    text-align:right;
+    padding:10px;
+  }
+
+  .collapsed {
+    width: $picnic-nav-width-collapsed;
   }
 
   %nav {
@@ -159,9 +168,8 @@ article.card {
 
       .nav-item {
         display: inline-flex;
-        padding: 0.4em;
-        padding-left: 0.5em;
-        // border-radius: 0px 25px 25px 0px;
+        padding: 0.4em 0px 0.4em 0.5em;
+        margin: 0px;
         width: 100%;
         color: #444;
       }
