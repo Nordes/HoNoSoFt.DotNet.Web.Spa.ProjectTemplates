@@ -161,15 +161,15 @@ Vuex, for the people who come from React, is the redux from VueJs. You have muta
 I don't think I should go more in depth on that topic. There is a sample in the counter page. Please go and look for yourself and then go on the [official site](https://vuex.vuejs.org) for more details and how to apply the best practices.
 
 ## Look'n feel
-<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home.png" style="height:300px; border: 1px #666 solid" />
+<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home.png" height="300px" style="border: 1px #666 solid" />
 
-<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-menu-collapsed.png" style="height:300px; border: 1px #666 solid" />
+<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-menu-collapsed.png" height="200px" style="border: 1px #666 solid" />
 
 ### Responsive design
-<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive.png" style="height:300px; border: 1px #666 solid" />
+<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive.png" height="300px" style="border: 1px #666 solid" />
 
 ### Responsive menu
-<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive-menu.png" style="height:300px; border: 1px #666 solid" />
+<img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive-menu.png" height="300px" style="border: 1px #666 solid" />
 
 ## Stats
 The following stats are for the main content of the template. The Fontello is ommited, but if you want to know, it's about 2kb total all the file downloaded within the browser.
