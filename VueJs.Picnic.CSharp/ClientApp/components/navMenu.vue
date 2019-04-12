@@ -32,7 +32,7 @@
           exact-active-class="active"
           :title="route.meta.display"
         >
-          <icon :icon="route.meta.icon" /><span v-if="!collapsed">{{ route.meta.display }}</span>
+          <icon :icon="route.meta.icon" /><span :class="collapsedClass">{{ route.meta.display }}</span>
         </router-link>
       </template>
       
@@ -55,6 +55,7 @@ export default {
       return this.collapsed === true ? ' collapsed' : ''
     }
   },
+
   data () {
     return {
       routes,

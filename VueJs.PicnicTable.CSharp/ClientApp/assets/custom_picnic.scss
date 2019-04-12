@@ -178,6 +178,10 @@ article.card {
         color: #eee;
         background: $blue;
       }
+
+      span.collapsed {
+        color: transparent;  width:0px !important;
+      }
     }
   }
 }

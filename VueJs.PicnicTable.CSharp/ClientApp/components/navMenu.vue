@@ -43,7 +43,7 @@
           exact-active-class="active"
           :title="$t(route.meta.i18n)"
         >
-          <icon :icon="route.meta.icon" /><span v-if="!collapsed" v-t="route.meta.i18n" />
+          <icon :icon="route.meta.icon" /><span :class="collapsedClass" v-t="route.meta.i18n" />
         </router-link>
       </template>
 
