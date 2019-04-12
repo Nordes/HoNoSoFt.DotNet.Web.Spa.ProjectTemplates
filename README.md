@@ -163,6 +163,8 @@ I don't think I should go more in depth on that topic. There is a sample in the 
 ## Look'n feel
 ![Sample](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home.png "Sample")
 
+![Sample menu collapsed](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-menu-collapsed.png "Sample menu collapsed")
+
 ### Responsive design
 ![Sample responsive](https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive.png "Sample responsive")
 
