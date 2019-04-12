@@ -65,7 +65,11 @@ article.card {
       max-width: initial;
     }
 
-    .menu {
+    .collapseToggle {
+      display: none !important;
+    }
+  
+    .menu {    
       .nav-item {
         color: #CCC;
       }
