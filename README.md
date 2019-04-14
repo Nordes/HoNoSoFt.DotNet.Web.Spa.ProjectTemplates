@@ -1,5 +1,5 @@
 [![NuGet](https://img.shields.io/nuget/v/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates.svg)](https://www.nuget.org/packages/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/) 
-![Github commits (since latest release)](https://img.shields.io/github/commits-since/nordes/honosoft.dotnet.web.spa.projecttemplates/1.5.0.svg) [![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/okfn33vwyff1xb3h/branch/master?svg=true)](https://ci.appveyor.com/project/Nordes/honosoft-dotnet-web-spa-projecttemplates/branch/master)
 
 # <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/VueJs.Picnic.CSharp/ClientApp/static/images/logo.png" height="30" /> Dotnet Core 2.2 + VueJs + Picnic CSS
 
@@ -33,8 +33,6 @@ This is wanted to be simple a SPA with a minimum dependencies or performance iss
     - [Responsive design](#responsive-design)
     - [Responsive menu](#responsive-menu)
   - [Stats](#stats)
-    - [VueJs-Picnic template](#vuejs-picnic-template)
-    - [VueJs-PicnicTable template](#vuejs-picnictable-template)
   - [More information about what's inside or how it works?](#more-information-about-whats-inside-or-how-it-works)
   - [About the author](#about-the-author)
   - [License](#license)
@@ -172,26 +170,11 @@ I don't think I should go more in depth on that topic. There is a sample in the 
 <img src="https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/raw/master/screenshot/screenshot-home-responsive-menu.png" height="300px" style="border: 1px #666 solid" />
 
 ## Stats
-The following stats are for the main content of the template. The Fontello is ommited, but if you want to know, it's about 2kb total all the file downloaded within the browser.
+App Size is really small, the latest version of the template can be seen on Azure, I think it reflects better than the previous table:
+* [VueJs-Picnic template](https://vue-picnic.azurewebsites.net/)
+* [VueJs-PicnicTable template](https://vue-picnic-table.azurewebsites.net/)
 
-**Tips:**
-> Vendors files are the library from within nodejs we use (i.e.: VueJs and VueRouter just to name it)
-
-### VueJs-Picnic template
-| File | Development | Production (with gzip) |
-|---|---------------|------------|
-| main.css | N/A | 8 kb |
-| main.js | 225 kb | 5.5 kb |
-| vendors.js | 558 kb | 43.5 kb |
-
-### VueJs-PicnicTable template
-| File | Development | Production (with gzip) |
-|---|---------------|------------|
-| main.css | N/A | 8 kb |
-| main.js | 250 kb | 8 kb |
-| vendors.js | 857 kb | 73.9 kb |
-
-The reason why it's a little bit bigger is because we have 1 more page and then a few extra components within the template (such as Vee-validate, I18n, etc.).
+The reason why the table is a bit bigger, is because there's 1 more page and then a few extra components within the template (such as Vee-validate, I18n, etc.).
 
 ## More information about what's inside or how it works?
 The wiki is currently under construction. So please visit sometimes ;).
