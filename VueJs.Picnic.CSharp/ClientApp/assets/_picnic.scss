@@ -1,9 +1,3 @@
-// $picnic-nav-sides: 0;
-$picnic-nav-position: inherit;
-$theme-dark-color: #222;
-$theme-dark-textcolor: #ddd;
-$green: #00AA55;
-
 @import "../../node_modules/picnic/src/picnic.scss";
 
 .body {
@@ -84,7 +78,6 @@ article.card {
 
 @media all and (min-width: $picnic-breakpoint) {
   nav.dark {
-    // background-color: $theme-dark-color;
     border-right:1px #ddd solid;
   }
 
@@ -206,5 +199,21 @@ table {
 
   h1 {
     padding: 0.1em;
+  }
+}
+
+article {
+  header {
+    background-color: $theme-dark-color;
+    color: $white;
+  }
+
+  content {
+    padding: 0 1em;
+  }
+
+  footer {
+    background-color: $silver;
+    padding: 0 1em !important;
   }
 }

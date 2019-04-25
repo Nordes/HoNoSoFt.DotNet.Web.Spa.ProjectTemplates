@@ -1,21 +1,5 @@
-$theme-dark-color: #222;
-@import "../../node_modules/picnic/src/themes/default/theme";
-
-article {
-  header {
-    background-color: $theme-dark-color;
-    color: $white;
-  }
-
-  content {
-    padding: 0 1em;
-  }
-
-  footer {
-    background-color: $silver;
-    padding: 0 1em !important;
-  }
-}
+@import "./theme";
+@import "./picnic";
 
 .text-right {
   text-align: right;

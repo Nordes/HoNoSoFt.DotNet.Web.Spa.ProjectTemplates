@@ -7,7 +7,6 @@ import store from './store'
 import { sync } from 'vuex-router-sync'
 
 import App from './app.vue'
-require('./assets/custom_picnic.scss')
 require('./assets/site.scss')
 
 // Mode details on: https://vuejs.org/v2/guide/components-registration.html
