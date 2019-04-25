@@ -1,9 +1,3 @@
-// $picnic-nav-sides: 0;
-$picnic-nav-position: inherit;
-$theme-dark-color: #222;
-$theme-dark-textcolor: #ddd;
-$green: #00AA55;
-
 @import "../../node_modules/picnic/src/picnic.scss";
 
 .body {
@@ -203,13 +197,18 @@ table {
   }
 }
 
-.page-title {
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 1em;
-  margin-left: -0.5em;
-  padding-left: 0.5em;
+article {
+  header {
+    background-color: $theme-dark-color;
+    color: $white;
+  }
 
-  h1 {
-    padding: 0.1em;
+  content {
+    padding: 0 1em;
+  }
+
+  footer {
+    background-color: $silver;
+    padding: 0 1em !important;
   }
 }

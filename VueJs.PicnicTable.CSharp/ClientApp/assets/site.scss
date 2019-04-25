@@ -1,24 +1,19 @@
-$theme-dark-color: #222;
-@import "../../node_modules/picnic/src/themes/default/theme";
-
-article {
-  header {
-    background-color: $theme-dark-color;
-    color: $white;
-  }
-
-  content {
-    padding: 0 1em;
-  }
-
-  footer {
-    background-color: $silver;
-    padding: 0 1em !important;
-  }
-}
+@import "./themeColor";
+@import "./picnic";
 
 .text-right {
   text-align: right;
+}
+
+.page-title {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1em;
+  margin-left: -0.5em;
+  padding-left: 0.5em;
+
+  h1 {
+    padding: 0.1em;
+  }
 }
 
 // Optimization can be done by using a list + substring + ...
@@ -56,6 +51,7 @@ article {
 .color-white {
   color: $white;
 }
+
 .color-red {
   color: $picnic-error;
 }
