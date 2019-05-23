@@ -23,6 +23,8 @@ RUN dotnet publish -c Release -o /app/ -r linux-musl-x64
 FROM mcr.microsoft.com/dotnet/core/runtime:2.2-alpine3.8 as baseimage
 RUN addgroup -S coreApp && adduser -S -G coreApp coreApp
 
+## User should be set in order to run under that user, however, it is not for now.
+
 # Define other environment variable if needed.
 ENV ASPNETCORE_URLS=http://+:$port
 
