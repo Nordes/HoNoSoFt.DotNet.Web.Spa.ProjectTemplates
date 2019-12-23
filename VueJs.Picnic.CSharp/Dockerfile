@@ -10,7 +10,7 @@
 ####################################################
 
 # Build the container with Source code compiled
-FROM mcr.microsoft.com/dotnet/core/sdk:2.2-alpine3.8 as buildenv
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine as buildenv
 WORKDIR /source
 RUN apk add --update nodejs nodejs-npm
 COPY *.csproj .
@@ -20,7 +20,7 @@ COPY . .
 RUN dotnet publish -c Release -o /app/ -r linux-musl-x64
 
 # Stage 2 - Creating Image for compiled app
-FROM mcr.microsoft.com/dotnet/core/runtime:2.2-alpine3.8 as baseimage
+FROM mcr.microsoft.com/dotnet/core/runtime:3.1-alpine as baseimage
 RUN addgroup -S coreApp && adduser -S -G coreApp coreApp
 
 ## User should be set in order to run under that user, however, it is not for now.

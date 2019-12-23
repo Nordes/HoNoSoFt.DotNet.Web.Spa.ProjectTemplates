@@ -21,7 +21,7 @@ namespace VueJs.Picnic.CSharp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(mvcOptions => { mvcOptions.EnableEndpointRouting = false; }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // Enable the Gzip compression especially for Kestrel
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
