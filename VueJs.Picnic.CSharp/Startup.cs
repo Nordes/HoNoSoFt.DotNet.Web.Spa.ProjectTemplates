@@ -1,45 +1,44 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using VueJs.Picnic.CSharp.Extensions;
+using VueJs.Picnic.CSharp.BackgroundJob;
+using VueJs.Picnic.CSharp.Configurations;
 
 namespace VueJs.Picnic.CSharp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            CurrentEnvironment = env;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment CurrentEnvironment { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(mvcOptions => { mvcOptions.EnableEndpointRouting = false; }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(mvcOptions => { mvcOptions.EnableEndpointRouting = false; });
+            services.AddKestrelCompression();
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "wwwroot/"; });
+            
+            if (CurrentEnvironment.IsDevelopment())
+            {
+                services.Configure<WebpackConfiguration>(Configuration.GetSection("Webpack"));
+                services.AddHostedService<WebpackJob>();
+            }
 
-            // Enable the Gzip compression especially for Kestrel
-            services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
-            services.AddResponseCompression(options =>
-                {
-#if (!NoHttps)
-                    options.EnableForHttps = true;
-#endif
-                });
-
-            services.AddSpaStaticFiles(config => { config.RootPath = "wwwroot/"; });
-
-            // Example with dependency injection for a data provider.
-            services.AddWeather();
+            // Dependency injection for a data provider.
+            services.AddSingleton<Providers.IWeatherProvider, Providers.WeatherProviderFake>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -57,21 +56,20 @@ namespace VueJs.Picnic.CSharp
             }
 #endif
 
-            app.UseResponseCompression(); // No need if you use IIS, but really something good for Kestrel!
-
-            // Idea: https://code.msdn.microsoft.com/How-to-fix-the-routing-225ac90f
-            // This avoid having a real mvc view. You have other way of doing, but this one works
-            // properly.
-            // app.UseSpa();
-            app.UseDefaultFiles();
+            app.UseResponseCompression(); // No need if you use IIS, but really useful for Kestrel
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
-            });
+            //app.UseDefaultFiles(); // was there, now not needed (Maybe still in production)
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllerRoute(
+                        name: "default",
+                        pattern: "/api/{controller}/{action=Index}/{id?}");
+                    // endpoints.MapRazorPages(); // <== if we want to use some Authentication
+                });
 
             app.UseSpa(spa =>
             {
@@ -79,12 +77,12 @@ namespace VueJs.Picnic.CSharp
 
                 if (env.IsDevelopment())
                 {
-                    spa.ApplicationBuilder.UseWebpackDevMiddleware(
-                        new WebpackDevMiddlewareOptions
-                        {
-                            HotModuleReplacement = true,
-                            ConfigFile = "./build/webpack.config.js"
-                        });
+                    // If launchSettings.json use HTTPS then you need to use the same certificate for
+                    // the HTTPS within the SpaDevelopmentServer (webpack-dev-server in this instance).
+                    //
+                    // You will also have to update the ./BackgroundJob/WebpackJob.cs with the certificate
+                    // option.
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
                 }
             });
         }

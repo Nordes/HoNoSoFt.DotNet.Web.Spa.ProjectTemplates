@@ -1,13 +1,21 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace VueJs.Picnic.CSharp.Extensions
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddWeather(this IServiceCollection services)
+        public static IServiceCollection AddKestrelCompression(this IServiceCollection services)
         {
-            // All add weather related DI.
-            services.AddSingleton<Providers.IWeatherProvider, Providers.WeatherProviderFake>();
+            // Enable the Gzip compression especially for Kestrel
+            services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
+            services.AddResponseCompression(options =>
+            {
+#if (!NoHttps)
+                options.EnableForHttps = true;
+#endif
+            });
 
             return services;
         }

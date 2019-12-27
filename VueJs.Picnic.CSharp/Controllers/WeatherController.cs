@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VueJs.Picnic.CSharp.Providers;
 
 namespace VueJs.Picnic.CSharp.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class WeatherController : ControllerBase
     {
       private readonly IWeatherProvider weatherProvider;

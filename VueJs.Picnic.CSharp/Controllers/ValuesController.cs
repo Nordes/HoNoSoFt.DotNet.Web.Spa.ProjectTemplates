@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace VueJs.Picnic.CSharp.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ValuesController : ControllerBase
     {
         // GET api/values
