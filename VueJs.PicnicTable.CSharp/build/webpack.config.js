@@ -27,6 +27,10 @@ module.exports = {
   mode: BaseConfig.isProduction ? 'production' : 'development',
   stats: BaseConfig.isProduction ? 'errors-only' : 'normal',
   entry: { 'main': './ClientApp/app.js' }, // 'polyfill': "@babel/polyfill" could also be added here.
+  devServer: {
+    // contentBase: './dist',
+    port: 8080
+  },
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {

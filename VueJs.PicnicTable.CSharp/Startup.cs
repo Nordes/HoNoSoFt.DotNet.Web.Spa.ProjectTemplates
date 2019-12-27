@@ -1,75 +1,48 @@
-﻿using System.IO;
-using System.Reflection;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Swashbuckle.AspNetCore.Swagger;
 using VueJs.PicnicTable.CSharp.Extensions;
+using Microsoft.Extensions.Options;
+using VueJs.PicnicTable.CSharp.Configurations;
 
 namespace VueJs.PicnicTable.CSharp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            CurrentEnvironment = env;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment CurrentEnvironment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(mvcOptions => { mvcOptions.EnableEndpointRouting = false; });
-            services.AddSwaggerGen(c =>
-                {
-                    c.SwaggerDoc("v1", new Info {
-                        Title = "My app API",
-                        Description = "A simple example Core Web API",
-                        TermsOfService = "None",
-                        Version = "v1",
-                        Contact = new Contact
-                            {
-                                Name = "Nordes Lamarre",
-                                Email = string.Empty,
-                                Url = "https://twitter.com/nordes"
-                            },
-                            License = new License
-                            {
-                                Name = "Use under MIT",
-                                Url = "https://github.com/Nordes/HoNoSoFt.DotNet.Web.Spa.ProjectTemplates/blob/master/LICENSE"
-                            }
-                    });
+            //services.AddNewtonsoftJson();
+            services.AddKestrelCompression();
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "wwwroot/"; });
+            services.AddSwagger();
 
-                    // Set the comments path for the Swagger JSON and UI.
-                    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                    var xmlPath = Path.Combine(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location), xmlFile);
-                    c.IncludeXmlComments(xmlPath);
-                });
-                
-            // Enable the Gzip compression especially for Kestrel
-            services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
-            services.AddResponseCompression(options =>
-                {
-#if (!NoHttps)
-                    options.EnableForHttps = true;
-#endif
-                });
-
-            services.AddSpaStaticFiles(config => { config.RootPath = "wwwroot/"; });
+            if (CurrentEnvironment.IsDevelopment())
+            {
+                services.Configure<WebpackConfiguration>(Configuration.GetSection("Webpack"));
+                //services.AddHostedService<WebpackJob>();
+            }
 
             // Example with dependency injection for a data provider.
-            services.AddWeather();
+            services.AddSingleton<Providers.IWeatherProvider, Providers.WeatherProviderFake>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.EnvironmentName.Equals("Development"))
+            if (CurrentEnvironment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -86,7 +59,6 @@ namespace VueJs.PicnicTable.CSharp
             }
 #endif
             app.UseResponseCompression(); // This is especially true for Kestrel!
-            
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
@@ -95,28 +67,38 @@ namespace VueJs.PicnicTable.CSharp
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
-            app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            app.UseMvc(routes =>
+            app.UseRouting();
+
+            //app.UseDefaultFiles();
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    pattern: "/api/{controller}/{action=Index}/{id?}");
+                // endpoints.MapRazorPages(); // <== if we want to use some Authentication
             });
 
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
 
-                if (env.IsDevelopment())
+                if (CurrentEnvironment.IsDevelopment())
                 {
-                    spa.ApplicationBuilder.UseWebpackDevMiddleware(
-                        new WebpackDevMiddlewareOptions
-                        {
-                            HotModuleReplacement = true,
-                            ConfigFile = "./build/webpack.config.js"
-                        });
+                    // Alternative: https://github.com/aspnet/AspNetCore/issues/5204#issuecomment-558132169
+                    // Use NPM script, but the issue with the process not being killed will remain.
+                    //
+                    // If launchSettings.json use HTTPS then you need to use the same certificate for
+                    // the HTTPS within the SpaDevelopmentServer (webpack-dev-server in this instance).
+                    //
+                    // You will also have to update the ./BackgroundJob/WebpackJob.cs with the certificate
+                    // option.
+                    var webpackOptions = app.ApplicationServices.GetService<IOptions<WebpackConfiguration>>();
+                    var webpack = webpackOptions == null ? new WebpackConfiguration() : webpackOptions.Value;
+                    spa.UseProxyToSpaDevelopmentServer($"http://localhost:{webpack.Port}");
+                //spa.UseProxyToSpaDevelopmentServer(f=> {
+                //    f. })
                 }
             });
         }
